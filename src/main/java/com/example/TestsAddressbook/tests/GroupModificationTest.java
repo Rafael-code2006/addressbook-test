@@ -1,4 +1,17 @@
 package com.example.TestsAddressbook.tests;
 
-public class GroupModificationTest {
+import org.testng.annotations.Test;
+
+public class GroupModificationTest extends TestBase{
+
+    @Test
+    public void testGroupModification(){
+        app.getNavigationHelper().goToGroups();
+        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().initGroupModification();
+        app.getGroupHelper().clearGroup();
+        app.getGroupHelper().newGroup(new GroupData("test1", "test2", "test3"));
+        app.getGroupHelper().submitGroupModification();
+        app.getGroupHelper().returnToGroupsPage();
+    }
 }

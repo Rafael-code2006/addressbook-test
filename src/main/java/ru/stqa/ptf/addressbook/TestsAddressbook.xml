@@ -3,7 +3,7 @@
 <suite name = "TestsAddressbook">
 <test name = "CreateTestGroup">
     <classes>
-        <class name = "com.example.TestsAddressbook.CreateTestGroup"/>
+        <class name = "com.example.TestsAddressbook.tests.CreateTestGroup"/>
     </classes>
 </test>
 </suite>

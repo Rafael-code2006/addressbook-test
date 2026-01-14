@@ -1,4 +1,4 @@
-package com.example.TestsAddressbook;
+package com.example.TestsAddressbook.tests;
 
 import org.testng.annotations.*;
 
@@ -9,10 +9,12 @@ public class CreateTestGroup extends TestBase {
   @Test
   public void testGroupCreate() throws Exception {
 
-      app.login(ApplicationManager.username, ApplicationManager.password);
-      app.goToGroups();
-      app.createGroup("Rafael`s group", "testGroup", "Test footer");
-      app.returnToGroups();
+      app.getNavigationHelper().goToGroups(); // Перейти к группам
+      app.getGroupHelper().createGroup(new GroupData(
+              "Rafael`s group",
+              "testGroup",
+              "Test footer"));  // Ввод данных в поля новой группы
+      app.getGroupHelper().returnToGroupsPage(); // Вернутся к группам
   }
 
 
