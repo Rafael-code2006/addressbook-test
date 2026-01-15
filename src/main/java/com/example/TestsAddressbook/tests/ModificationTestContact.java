@@ -9,7 +9,7 @@ public class ModificationTestContact extends TestBase{
     private void test(){
         app.getContactHelper().selectContact(1);
         app.getContactHelper().goToEdit(1);
-        app.getContactHelper().newContact(new ContactData("Artem", "Alekseev", "art@mail.ru", 2), false);
+        app.getContactHelper().newContact(new ContactData("Artem", "Alekseev", "art@mail.ru", "Rafael`s group"), false);
         app.getContactHelper().updateContact();
         app.getContactHelper().returnToContacts();
 

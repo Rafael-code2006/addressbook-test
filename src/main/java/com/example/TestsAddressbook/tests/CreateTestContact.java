@@ -9,9 +9,8 @@ public class CreateTestContact extends TestBase {
 
     @Test
     private void test(){
-
         app.getNavigationHelper().goToAddNewContacts();
-        app.getContactHelper().newContact(new ContactData("Pavel", "Barancev", "rgg@mail.ru", 3), false);
+        app.getContactHelper().newContact(new ContactData("Pavel", "Barancev", "rgg@mail.ru", "Rafael`s group"), true);
         app.getContactHelper().selectedGroup(3);
         app.getContactHelper().saveContact();
         app.getContactHelper().returnToContacts();

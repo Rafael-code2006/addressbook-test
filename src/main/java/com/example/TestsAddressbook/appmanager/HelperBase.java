@@ -37,7 +37,6 @@ public class HelperBase {
         }
     }
 
-
     protected void type(String group_name, String test1) {
         click(By.name(group_name));
         driver.findElement(By.name(group_name)).clear();
