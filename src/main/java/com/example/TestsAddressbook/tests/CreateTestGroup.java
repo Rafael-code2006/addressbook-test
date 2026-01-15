@@ -15,7 +15,6 @@ public class CreateTestGroup extends TestBase {
               "Rafael`s group",
               "testGroup",
               "Test footer"));  // Ввод данных в поля новой группы
-      app.getGroupHelper().returnToGroupsPage(); // Вернутся к группам
   }
 
 

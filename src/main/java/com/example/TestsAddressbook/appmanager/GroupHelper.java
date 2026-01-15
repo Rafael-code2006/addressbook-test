@@ -26,6 +26,7 @@ public class GroupHelper extends HelperBase{
         initGroupCreation();
         newGroup(groupData);
         submitGroupCreation();
+        returnToGroupsPage();
         System.out.println("createGroup");
     }
 
@@ -63,5 +64,13 @@ public class GroupHelper extends HelperBase{
 
     public void submitGroupModification() {
     click(By.name("update"));
+    }
+
+    public boolean isThereAGroup() {
+        if(!isElementPresent(By.className("group"))){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
