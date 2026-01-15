@@ -1,6 +1,6 @@
 package com.example.TestsAddressbook.appmanager;
 
-import com.example.TestsAddressbook.tests.GroupData;
+import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

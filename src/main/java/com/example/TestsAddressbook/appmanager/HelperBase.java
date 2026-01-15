@@ -3,7 +3,11 @@ package com.example.TestsAddressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
@@ -14,11 +18,20 @@ public class HelperBase {
     }
 
     protected void click(By locator) {
-        driver.findElement(locator).click();
+        WebElement elementClick = (new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.elementToBeClickable(locator)));
+        if(elementClick != null){
+        elementClick.click();
+        }
+
     }
 
     protected void clear(By locator){
-        driver.findElement(locator).clear();
+        WebElement elementClear = (new WebDriverWait(driver, 30)
+                .until(ExpectedConditions.presenceOfElementLocated(locator)));
+        if(elementClear != null){
+            elementClear.clear();
+        }
     }
 
     protected void timerSecond(int seconds){
@@ -37,7 +50,10 @@ public class HelperBase {
 
     protected void type(String group_name, String test1) {
         click(By.name(group_name));
-        driver.findElement(By.name(group_name)).clear();
-        driver.findElement(By.name(group_name)).sendKeys(test1);
-    }
+        if(test1 != null){
+            driver.findElement(By.name(group_name)).clear();
+            driver.findElement(By.name(group_name)).sendKeys(test1);
+        }
+        }
+
 }

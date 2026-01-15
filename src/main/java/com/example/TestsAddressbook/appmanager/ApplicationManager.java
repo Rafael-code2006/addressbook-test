@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.util.Objects;
@@ -18,6 +17,7 @@ public class ApplicationManager {
     public static final String password = "secret";
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
     private String browser;
 
@@ -37,6 +37,7 @@ public class ApplicationManager {
              driver = new EdgeDriver();
         }
         groupHelper = new GroupHelper(driver);
+        contactHelper = new ContactHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         sessionHelper.login(username, password);
@@ -57,6 +58,10 @@ public class ApplicationManager {
       }
     }
 
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
+    }
 
     public GroupHelper getGroupHelper() {
         return groupHelper;

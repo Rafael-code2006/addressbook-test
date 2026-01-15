@@ -1,4 +1,4 @@
-package com.example.TestsAddressbook.tests;
+package com.example.TestsAddressbook.model;
 
 public class GroupData {
 
