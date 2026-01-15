@@ -15,7 +15,8 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact(ContactData contactData){
-        click(By.xpath("//input[@alt=\"Select ("+contactData.getFirstname() + " " + contactData.getLastname()+ ")\"]"));
+        String user = contactData.getFirstname() + " " + contactData.getLastname();
+        click(By.xpath("//input[@alt=\"Select ("+user+ ")\"]"));
     } // Выбор контактов
 
     public void createContact(int group){
@@ -24,13 +25,18 @@ public class ContactHelper extends HelperBase {
 
     public void checkingContact(ContactData contactData) {
         if(!isElementPresent(By.xpath("//input[@name=\\\"selected[]\\\" and @id=\\\"\"+ contactId + \"\\\"]"))){
-            driver.findElement(By.linkText("add new")).click();
+            goToNewContact();
             createContact(contactData);
         }
     } // Проверка наличия контактов
 
+    private void goToNewContact() {
+        driver.findElement(By.linkText("add new")).click();
+    }
+
     public void goToEdit(ContactData contactData){
-        click(By.xpath("//input[@title=\"Select ("+contactData.getFirstname() + " " + contactData.getLastname() + ")\"]/../../td[@class=\"center\"][3]/a"));
+        String user = contactData.getFirstname() + " " + contactData.getLastname();
+        click(By.xpath("//input[@title=\"Select ("+ user + ")\"]/../../td[@class=\"center\"][3]/a"));
     }
 
     public void returnToContacts(){

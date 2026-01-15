@@ -71,4 +71,7 @@ public class GroupHelper extends HelperBase{
     click(By.name("update"));
     }
 
+    public int getGroupCount() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
 }
