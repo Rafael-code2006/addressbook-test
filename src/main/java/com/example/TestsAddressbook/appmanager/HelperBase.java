@@ -13,6 +13,9 @@ public class HelperBase {
         this.driver = driver;
     }
 
+
+
+
     protected void click(By locator) {
         driver.findElement(locator).click();
     }
@@ -39,5 +42,14 @@ public class HelperBase {
         click(By.name(group_name));
         driver.findElement(By.name(group_name)).clear();
         driver.findElement(By.name(group_name)).sendKeys(test1);
+    }
+
+    protected boolean isElementPresent(By locator) {
+        try {
+            driver.findElement(locator);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

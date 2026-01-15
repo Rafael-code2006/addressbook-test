@@ -3,28 +3,30 @@ package com.example.TestsAddressbook.appmanager;
 import com.example.TestsAddressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ContactHelper extends HelperBase {
-
-    private List<WebElement> groups = new ArrayList<>();
-
-
-    public List<WebElement> getGroups(){
-        groups.add(driver.findElement(By.name("new_group")));
-        return groups;
-    }
 
     public ContactHelper(WebDriver driver) {
         super(driver);
     }
 
+    public void selectContact(int contactId){
+        click(By.xpath("//input[@name=\"selected[]\" and @id=\""+ contactId + "\"]"));
+    }
+
+    public void goToEdit(int contactId){
+        click(By.xpath("//a[@href=\"edit.php?id=1\"]"));
+    }
+
     public void returnToContacts(){
         click(By.linkText("home page"));
+    }
+
+    public void updateContact(){
+        click(By.xpath("//*[@id=\"content\"]/form[1]/input[1]"));
     }
 
     public void saveContact(){
@@ -33,14 +35,21 @@ public class ContactHelper extends HelperBase {
 
     public void selectedGroup(int group){
         click(By.xpath("//select[@name=\"new_group\"]/option[" + group + "]"));
+
+
     }
 
-    public void newContact(ContactData contactData){
+    public void newContact(ContactData contactData, boolean creation){
         type("firstname", contactData.getFirstname());
-        timerSecond(30);
         type("lastname", contactData.getLastname());
-        timerSecond(30);
         type("email", contactData.getEmail());
-        timerSecond(30);
+
+        if(creation){
+                new Select(driver.findElement(By.name("new_group"))).selectByIndex(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+
     }
+
 }

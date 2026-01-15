@@ -1,8 +1,9 @@
 package com.example.TestsAddressbook.tests;
 
+import com.example.TestsAddressbook.model.GroupData;
 import org.testng.annotations.Test;
 
-public class GroupModificationTest extends TestBase{
+public class ModificationTestGroup extends TestBase{
 
     @Test
     public void testGroupModification(){

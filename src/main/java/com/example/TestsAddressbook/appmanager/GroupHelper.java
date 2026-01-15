@@ -1,6 +1,6 @@
 package com.example.TestsAddressbook.appmanager;
 
-import com.example.TestsAddressbook.tests.GroupData;
+import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,7 +12,7 @@ public class GroupHelper extends HelperBase{
 
     public void selectGroup(){
         click(By.name("selected[]"));
-}
+    }
 
     public void deleteGroup(){
         click(By.name("delete"));
