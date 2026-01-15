@@ -1,6 +1,8 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.appmanager.ApplicationManager;
+import com.example.TestsAddressbook.model.GroupData;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,5 +20,4 @@ public class TestBase {
     public void tearDown() throws Exception {
         app.stop();
     }
-
 }

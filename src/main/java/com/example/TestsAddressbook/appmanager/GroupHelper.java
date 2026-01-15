@@ -12,15 +12,15 @@ public class GroupHelper extends HelperBase{
 
     public void selectGroup(){
         click(By.name("selected[]"));
-    }
+    } // Выбор группы
 
     public void deleteGroup(){
         click(By.name("delete"));
-    }
+    } // Удаление группы
 
     public void returnToGroupsPage(){
         click(By.linkText("group page"));
-    }
+    } // Возврат к списку групп
 
     public void createGroup(GroupData groupData){
         initGroupCreation();
@@ -28,7 +28,7 @@ public class GroupHelper extends HelperBase{
         submitGroupCreation();
         returnToGroupsPage();
         System.out.println("createGroup");
-    }
+    } // Путь создания группу
 
     public void newGroup(GroupData groupData) {
         type("group_name", groupData.getName());
@@ -37,8 +37,13 @@ public class GroupHelper extends HelperBase{
         timerSecond(20);
         type("group_footer", groupData.getFooter());
         timerSecond(20);
-    }
+    } // Создание группы
 
+    public void checkingGroup(GroupData groupData) {
+        if(!isElementPresent(By.className("group"))){
+            createGroup(groupData);
+        }
+    } // Проверка наличия групп
 
     public void clearGroup(){
         clear(By.name("group_name"));
@@ -48,7 +53,7 @@ public class GroupHelper extends HelperBase{
         clear(By.name("group_footer"));
         timerSecond(20);
         System.out.println("Clear group");
-    }
+    } // Очистить информацию о группе
 
     private void initGroupCreation() {
         click(By.name("new"));
@@ -66,11 +71,4 @@ public class GroupHelper extends HelperBase{
     click(By.name("update"));
     }
 
-    public boolean isThereAGroup() {
-        if(!isElementPresent(By.className("group"))){
-            return false;
-        } else {
-            return true;
-        }
-    }
 }

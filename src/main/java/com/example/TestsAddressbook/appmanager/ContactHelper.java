@@ -1,6 +1,7 @@
 package com.example.TestsAddressbook.appmanager;
 
 import com.example.TestsAddressbook.model.ContactData;
+import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -17,8 +18,18 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@name=\"selected[]\" and @id=\""+ contactId + "\"]"));
     }
 
+    public void createContact(int group){
+
+    }
+
+    public void checkingContact(ContactData contactData) {
+        if(isElementPresent(By.className("contact"))){
+            createContact(contactData);
+        }
+    }
+
     public void goToEdit(int contactId){
-        click(By.xpath("//a[@href=\"edit.php?id=1\"]"));
+        click(By.xpath("//a[@href=\"edit.php?id="+contactId+"\"]"));
     }
 
     public void returnToContacts(){
@@ -34,9 +45,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectedGroup(int group){
-        click(By.xpath("//select[@name=\"new_group\"]/option[" + group + "]"));
+        click(By.xpath("//select[@name=\"new_group\"]/option[last()]"));
 
 
+    }
+
+    public void createContact(ContactData contactData) {
+        newContact(contactData, true);
+        saveContact();
+        returnToContacts();
+    }
+
+    private void initGroupCreation() {
+        click(By.name("new"));
     }
 
     public void newContact(ContactData contactData, boolean creation){

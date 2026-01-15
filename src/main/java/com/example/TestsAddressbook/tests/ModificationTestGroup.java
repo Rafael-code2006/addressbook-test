@@ -7,12 +7,15 @@ public class ModificationTestGroup extends TestBase{
 
     @Test
     public void testGroupModification(){
+        GroupData groupData = new GroupData("Test2", "Test5", "Test7");
         app.getNavigationHelper().goToGroups();
+        app.getGroupHelper().checkingGroup(groupData);
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().clearGroup();
-        app.getGroupHelper().newGroup(new GroupData("test1", "test2", "test3"));
+        app.getGroupHelper().newGroup(groupData);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupsPage();
     }
+
 }

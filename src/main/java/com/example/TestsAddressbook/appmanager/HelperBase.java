@@ -51,4 +51,12 @@ public class HelperBase {
             return false;
         }
     }
+
+    public boolean isThereAGroup(String nameClass) {
+        if(!isElementPresent(By.className(nameClass))){
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
