@@ -14,22 +14,23 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-    public void selectContact(int contactId){
-        click(By.xpath("//input[@name=\"selected[]\" and @id=\""+ contactId + "\"]"));
-    }
+    public void selectContact(ContactData contactData){
+        click(By.xpath("//input[@alt=\"Select ("+contactData.getFirstname() + " " + contactData.getLastname()+ ")\"]"));
+    } // Выбор контактов
 
     public void createContact(int group){
 
     }
 
     public void checkingContact(ContactData contactData) {
-        if(isElementPresent(By.className("contact"))){
+        if(!isElementPresent(By.xpath("//input[@name=\\\"selected[]\\\" and @id=\\\"\"+ contactId + \"\\\"]"))){
+            driver.findElement(By.linkText("add new")).click();
             createContact(contactData);
         }
-    }
+    } // Проверка наличия контактов
 
-    public void goToEdit(int contactId){
-        click(By.xpath("//a[@href=\"edit.php?id="+contactId+"\"]"));
+    public void goToEdit(ContactData contactData){
+        click(By.xpath("//input[@title=\"Select ("+contactData.getFirstname() + " " + contactData.getLastname() + ")\"]/../../td[@class=\"center\"][3]/a"));
     }
 
     public void returnToContacts(){
@@ -43,7 +44,7 @@ public class ContactHelper extends HelperBase {
     public void saveContact(){
         click(By.xpath("//*[@value=\'Enter\']"));
     }
-
+    //*[@id="24"]
     public void selectedGroup(int group){
         click(By.xpath("//select[@name=\"new_group\"]/option[last()]"));
 
