@@ -16,6 +16,7 @@ public class GroupHelper extends HelperBase{
 
 
     public void selectGroup(int index){
+        timerSecond(3);
         waitFindElements(By.name("selected[]")).get(index).click();
     } // Выбор группы
 
@@ -71,6 +72,7 @@ public class GroupHelper extends HelperBase{
     }
 
     public void initGroupModification() {
+        timerSecond(3);
         click(By.name("edit"));
     }
 

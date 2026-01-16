@@ -11,12 +11,19 @@ public class ModificationTestContact extends TestBase{
 
     @Test
     private void test(){
+        for(int i=0; i<2; i++){
+            tests();
+        }
+
+    }
+
+    private void tests() {
         ContactData contactData = new ContactData("Artem", "Alekseev", "art@mail.ru", "Test2");
         List<ContactData>before = app.getContactHelper().getContactList();
         ContactData contactData1 = new ContactData(contactData.getId(), "Artem", "Alekseev", "art@mail.ru", "Test2");
         app.getContactHelper().checkingContact(contactData);
-        app.getContactHelper().selectContact(contactData);
-        app.getContactHelper().goToEdit(contactData);
+        app.getContactHelper().selectContact(before.get(0));
+        app.getContactHelper().goToEdit(before.get(0));
         app.getContactHelper().newContact(contactData, false);
         app.getContactHelper().updateContact();
         app.getContactHelper().returnToContacts();
@@ -27,6 +34,5 @@ public class ModificationTestContact extends TestBase{
         before.sort(byId);
         after.sort(byId);
         Assert.assertEquals(before, after);
-
     }
 }

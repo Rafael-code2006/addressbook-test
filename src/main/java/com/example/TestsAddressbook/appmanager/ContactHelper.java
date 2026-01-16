@@ -67,16 +67,16 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact(ContactData contactData) {
-        String user = contactData.getFirstname() + " " + contactData.getLastname();
-        click(By.xpath("//input[@alt='Select (" + user + ")']"));
+        click(By.cssSelector("input[value='" + contactData.getId() + "']"));
     }
+
 
 
 
     public void goToEdit(ContactData contactData) {
-        String user = contactData.getFirstname() + " " + contactData.getLastname();
-        click(By.xpath("//input[@title='Select (" + user + ")']/../../td[@class='center'][3]/a"));
+        click(By.xpath("//input[@value='" + contactData.getId() + "']/../../td[@class='center'][3]/a"));
     }
+
 
     public void updateContact() {
         click(By.xpath("//*[@id='content']/form[1]/input[1]"));

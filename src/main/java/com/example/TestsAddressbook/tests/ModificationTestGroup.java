@@ -13,14 +13,20 @@ public class ModificationTestGroup extends TestBase{
 
     @Test
     public void testGroupModification(){
+        for(int i=0; i<15; i++){
+            tests();
+        }
+
+    }
+
+    private void tests() {
         GroupData groupData = new GroupData("Test2", "Test5", "Test7");
         app.getNavigationHelper().goToGroups();
         app.getGroupHelper().checkingGroup(groupData);
         List<GroupData> before = app.getGroupHelper().getGroupList();
         GroupData newGroupData = new GroupData(before.get(before.size()-1).getId(), "Test2", "Test5", "Test7");
-        app.getGroupHelper().selectGroup(before.size() - 1);
+        app.getGroupHelper().selectGroup(0);
         app.getGroupHelper().initGroupModification();
-        app.getGroupHelper().clearGroup();
         app.getGroupHelper().newGroup(newGroupData);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupsPage();
