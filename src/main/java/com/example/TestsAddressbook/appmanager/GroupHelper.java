@@ -2,12 +2,20 @@ package com.example.TestsAddressbook.appmanager;
 import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Collection;
+import java.util.List;
 
 public class GroupHelper extends HelperBase{
 
     public GroupHelper(WebDriver driver) {
         super(driver);
     }
+
+
 
     public void selectGroup(){
         click(By.name("selected[]"));
@@ -68,5 +76,19 @@ public class GroupHelper extends HelperBase{
 
     public void submitGroupModification() {
     click(By.name("update"));
+    }
+
+    public int counterGroups() {
+        //System.out.println((isElementPresent(By.xpath("//h1[text()=\"Groups\"]"))));
+        return waitFindElements(By.xpath("//input[@type=\"checkbox\"]")).size();
+    }
+
+    private List<WebElement> waitFindElements(By xpath) {
+        long currentTime = System.currentTimeMillis();
+        while(System.currentTimeMillis() < currentTime + 3000){
+            List<WebElement> elements = driver.findElements(xpath);
+            if(elements.size() > 0) return elements;
+        }
+        return null;
     }
 }

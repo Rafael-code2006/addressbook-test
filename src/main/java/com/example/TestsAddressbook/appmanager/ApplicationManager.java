@@ -7,8 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.support.ui.Wait;
 
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
@@ -31,9 +33,11 @@ public class ApplicationManager {
             driver = new ChromeDriver();
         } else if(Objects.equals(browser, BrowserType.FIREFOX)){
             System.setProperty("webdriver.gecko.driver", "C:\\Users\\ra_gimadeyev\\geckodriver.exe");
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             driver = new FirefoxDriver();
         } else {
             System.setProperty("webdriver.edge.driver", "C:\\Users\\ra_gimadeyev\\msedgedriver.exe");
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
              driver = new EdgeDriver();
         }
         groupHelper = new GroupHelper(driver);
@@ -70,6 +74,8 @@ public class ApplicationManager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
+
 
     public SessionHelper getSessionHelper() {
         return sessionHelper;

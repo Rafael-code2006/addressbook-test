@@ -25,7 +25,7 @@ public class HelperBase {
     }
 
     protected void timerSecond(int seconds){
-        driver.manage().timeouts().implicitlyWait(30 ,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(seconds ,TimeUnit.SECONDS);
     }
 
     public boolean isAlertPresent() {
@@ -44,12 +44,16 @@ public class HelperBase {
     }
 
     protected boolean isElementPresent(By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch (Exception ex) {
+            long currentTime = System.currentTimeMillis();
+            while(System.currentTimeMillis() < currentTime + 3000){
+                try {
+                    driver.findElement(locator);
+                    return true;
+                }catch (Exception ex) {
+                    // Do nothing
+                }
+            }
             return false;
-        }
     }
 
     public boolean isThereAGroup(String nameClass) {
