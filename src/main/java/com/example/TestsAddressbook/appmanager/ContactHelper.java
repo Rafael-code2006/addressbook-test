@@ -3,8 +3,12 @@ package com.example.TestsAddressbook.appmanager;
 import com.example.TestsAddressbook.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -39,6 +43,7 @@ public class ContactHelper extends HelperBase {
             try {
                 new Select(driver.findElement(By.name("new_group")))
                         .selectByVisibleText(contactData.getGroup());
+                saveContact();
             } catch(Exception ex){
                 saveContact();
             }
@@ -78,4 +83,18 @@ public class ContactHelper extends HelperBase {
     }
 
 
+    public List<ContactData> getContactList() {
+        List<ContactData> elements = new ArrayList<>();
+        List<WebElement> elementsWeb = waitFindElements(By.xpath("//input[@name='selected[]']"));
+
+
+        for(WebElement x : elementsWeb){
+            String title = x.getAttribute("title");
+            String name = title.substring(title.indexOf("(") + 1, title.indexOf(")"));
+            int id = Integer.parseInt(x.getAttribute("id"));
+            ContactData contactData = new ContactData(id, name, null, null, null);
+            elements.add(contactData);
+        }
+        return elements;
+    }
 }

@@ -83,27 +83,17 @@ public class GroupHelper extends HelperBase{
         return waitFindElements(By.xpath("//input[@type=\"checkbox\"]")).size();
     }
 
-    private List<WebElement> waitFindElements(By xpath) {
-        long currentTime = System.currentTimeMillis();
-        while(System.currentTimeMillis() < currentTime + 3000){
-            List<WebElement> elements = new ArrayList<>();
-            if(!driver.findElements(xpath).isEmpty()){
-                elements = driver.findElements(xpath);
-                if(!elements.isEmpty()) return elements;
-            }
-        }
-        return null;
-    }
-
     public List<GroupData> getGroupList() {
         List<GroupData>elements = new ArrayList<>();
-        if(!isElementPresent(By.cssSelector("span.group"))){
-            createGroup(new GroupData("Test1", null, null));
+        /*if(!isElementPresent(By.cssSelector("span.group"))){
+            createGroup(new GroupData(null, "Test1", null, null));
         }
+         */
         List<WebElement> elementsWeb = waitFindElements(By.cssSelector("span.group"));
         for(WebElement x : elementsWeb){
+            int id = Integer.parseInt(x.findElement(By.tagName("input")).getAttribute("value"));
             String name = x.getText();
-            GroupData groupData = new GroupData(name, null, null);
+            GroupData groupData = new GroupData(id, name, null, null);
             elements.add(groupData);
         }
 

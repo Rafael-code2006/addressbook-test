@@ -3,7 +3,10 @@ package com.example.TestsAddressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
@@ -62,5 +65,17 @@ public class HelperBase {
         } else {
             return true;
         }
+    }
+
+    protected List<WebElement> waitFindElements(By xpath) {
+        long currentTime = System.currentTimeMillis();
+        while(System.currentTimeMillis() < currentTime + 3000){
+            List<WebElement> elements = new ArrayList<>();
+            if(!driver.findElements(xpath).isEmpty()){
+                elements = driver.findElements(xpath);
+                if(!elements.isEmpty()) return elements;
+            }
+        }
+        return null;
     }
 }
