@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.List;
 
 
 public class CreateTestGroup extends TestBase {
@@ -13,15 +14,13 @@ public class CreateTestGroup extends TestBase {
   public void testGroupCreate() throws Exception {
 
       app.getNavigationHelper().goToGroups();
-      int beforeGroups = app.getGroupHelper().counterGroups();
-      System.out.println(beforeGroups);// Перейти к группам
+      List<GroupData> before = app.getGroupHelper().getGroupList();
       app.getGroupHelper().createGroup(new GroupData(
               "Test2",
               "testGroup",
               "Test footer"));// Ввод данных в поля новой группы
-      int afterGroups = app.getGroupHelper().counterGroups();
-      System.out.println(afterGroups);
-      Assert.assertEquals(afterGroups, beforeGroups+1);
+      List<GroupData> after = app.getGroupHelper().getGroupList();
+      Assert.assertEquals(after.size(), before.size()+1);
   }
 
 

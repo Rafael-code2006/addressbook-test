@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroupHelper extends HelperBase{
@@ -88,5 +89,16 @@ public class GroupHelper extends HelperBase{
             if(elements.size() > 0) return elements;
         }
         return null;
+    }
+
+    public List<GroupData> getGroupList() {
+        List<GroupData>elements = new ArrayList<>();
+        List<WebElement> elementsWeb = waitFindElements(By.cssSelector("span.group"));
+        for(WebElement x : elementsWeb){
+            String name = x.getText();
+            GroupData groupData = new GroupData(name, null, null);
+            elements.add(groupData);
+        }
+    return elements;
     }
 }
