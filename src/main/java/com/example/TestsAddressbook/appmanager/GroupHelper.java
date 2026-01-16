@@ -3,10 +3,7 @@ import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Collection;
 import java.util.List;
 
 public class GroupHelper extends HelperBase{
@@ -17,11 +14,12 @@ public class GroupHelper extends HelperBase{
 
 
 
-    public void selectGroup(){
-        click(By.name("selected[]"));
+    public void selectGroup(int index){
+        waitFindElements(By.name("selected[]")).get(index).click();
     } // Выбор группы
 
     public void deleteGroup(){
+        timerSecond(30);
         click(By.name("delete"));
     } // Удаление группы
 
