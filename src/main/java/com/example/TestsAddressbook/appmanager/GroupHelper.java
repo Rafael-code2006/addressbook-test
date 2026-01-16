@@ -29,6 +29,7 @@ public class GroupHelper extends HelperBase{
     } // Возврат к списку групп
 
     public void createGroup(GroupData groupData){
+        timerSecond(50);
         initGroupCreation();
         newGroup(groupData);
         submitGroupCreation();
@@ -85,20 +86,27 @@ public class GroupHelper extends HelperBase{
     private List<WebElement> waitFindElements(By xpath) {
         long currentTime = System.currentTimeMillis();
         while(System.currentTimeMillis() < currentTime + 3000){
-            List<WebElement> elements = driver.findElements(xpath);
-            if(elements.size() > 0) return elements;
+            List<WebElement> elements = new ArrayList<>();
+            if(!driver.findElements(xpath).isEmpty()){
+                elements = driver.findElements(xpath);
+                if(!elements.isEmpty()) return elements;
+            }
         }
         return null;
     }
 
     public List<GroupData> getGroupList() {
         List<GroupData>elements = new ArrayList<>();
+        if(!isElementPresent(By.cssSelector("span.group"))){
+            createGroup(new GroupData("Test1", null, null));
+        }
         List<WebElement> elementsWeb = waitFindElements(By.cssSelector("span.group"));
         for(WebElement x : elementsWeb){
             String name = x.getText();
             GroupData groupData = new GroupData(name, null, null);
             elements.add(groupData);
         }
-    return elements;
+
+        return elements;
     }
 }
