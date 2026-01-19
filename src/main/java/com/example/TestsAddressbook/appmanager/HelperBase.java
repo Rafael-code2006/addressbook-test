@@ -78,4 +78,17 @@ public class HelperBase {
         }
         return null;
     }
+
+    public WebElement waitFindElement(By locator) {
+        long currentTime = System.currentTimeMillis();
+        while(System.currentTimeMillis() < currentTime + 3000){
+            try{
+                return driver.findElement(locator);
+            } catch (Exception ex){
+                // Do nothing
+            }
+        }
+        return null;
+    }
+
 }

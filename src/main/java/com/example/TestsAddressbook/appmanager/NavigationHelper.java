@@ -2,10 +2,6 @@ package com.example.TestsAddressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.awt.*;
-import java.util.List;
 
 public class NavigationHelper extends HelperBase{
 
@@ -13,7 +9,7 @@ public class NavigationHelper extends HelperBase{
         super(driver);
     }
 
-    public void goToGroups(){
+    public void groupPage(){
         if(isElementPresent(By.tagName("h1"))
                 && waitFindElement(By.tagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))){
@@ -22,19 +18,7 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText("groups"));
     }
 
-    private WebElement waitFindElement(By locator) {
-        long currentTime = System.currentTimeMillis();
-        while(System.currentTimeMillis() < currentTime + 3000){
-            try{
-                return driver.findElement(locator);
-            } catch (Exception ex){
-                // Do nothing
-            }
-        }
-        return null;
-    }
-
-    public void goToAddNewContacts(){
+    public void AddNewContact(){
 
         if(!isElementPresent(By.id("maintable"))){
             return;

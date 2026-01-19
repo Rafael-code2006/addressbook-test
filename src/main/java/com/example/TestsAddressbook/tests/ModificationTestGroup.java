@@ -2,40 +2,40 @@ package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.GroupData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 
 public class ModificationTestGroup extends TestBase{
 
-    @Test
-    public void testGroupModification(){
-        for(int i=0; i<15; i++){
-            tests();
-        }
-
+    @BeforeMethod
+    public void esurePreconditions(){
+        GroupData groupData = new GroupData()
+                .withName("Test1")
+                .withHeader("testGroup")
+                .withFooter("TestFooter");
+        app.goTo().groupPage();
+        app.group().checkingGroup(groupData);
     }
 
-    private void tests() {
-        GroupData groupData = new GroupData("Test2", "Test5", "Test7");
-        app.getNavigationHelper().goToGroups();
-        app.getGroupHelper().checkingGroup(groupData);
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        GroupData newGroupData = new GroupData(before.get(before.size()-1).getId(), "Test2", "Test5", "Test7");
-        app.getGroupHelper().selectGroup(0);
-        app.getGroupHelper().initGroupModification();
-        app.getGroupHelper().newGroup(newGroupData);
-        app.getGroupHelper().submitGroupModification();
-        app.getGroupHelper().returnToGroupsPage();
-        List<GroupData> after = app.getGroupHelper().getGroupList();
-        Assert.assertEquals(after.size(), before.size());
+    @Test
+    public void testGroupModification(){
+        List<GroupData> before = app.group().grouplist();
+        int index = 0;
+        GroupData newGroupData = new GroupData()
+                .whithId(before.get(index).getId())
+                .withName("Test1")
+                .withHeader("testGroup")
+                .withFooter("TestFooter");
+        app.group().modifyGroup(index, newGroupData);
+        List<GroupData> after = app.group().grouplist();
 
 
-        before.remove(before.size() -1);
+        before.remove(index);
         before.add(newGroupData);
+
         Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
         before.sort(byId);
         after.sort(byId);

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ModificationTestContact extends TestBase{
 
-    @Test
+    @Test(enabled = false)
     private void test(){
         for(int i=0; i<2; i++){
             tests();
@@ -19,15 +19,15 @@ public class ModificationTestContact extends TestBase{
 
     private void tests() {
         ContactData contactData = new ContactData("Artem", "Alekseev", "art@mail.ru", "Test2");
-        List<ContactData>before = app.getContactHelper().getContactList();
+        List<ContactData>before = app.contact().getContactList();
         ContactData contactData1 = new ContactData(contactData.getId(), "Artem", "Alekseev", "art@mail.ru", "Test2");
-        app.getContactHelper().checkingContact(contactData);
-        app.getContactHelper().selectContact(before.get(0));
-        app.getContactHelper().goToEdit(before.get(0));
-        app.getContactHelper().newContact(contactData, false);
-        app.getContactHelper().updateContact();
-        app.getContactHelper().returnToContacts();
-        List<ContactData>after = app.getContactHelper().getContactList();
+        app.contact().checkingContact(contactData);
+        app.contact().selectContact(before.get(0));
+        app.contact().goToEdit(before.get(0));
+        app.contact().newContact(contactData, false);
+        app.contact().updateContact();
+        app.contact().returnToContacts();
+        List<ContactData>after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
         Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());

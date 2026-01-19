@@ -31,12 +31,21 @@ public class GroupHelper extends HelperBase{
 
     public void createGroup(GroupData groupData){
         timerSecond(50);
-        initGroupCreation();
+        newGroupCreation();
         newGroup(groupData);
         submitGroupCreation();
         returnToGroupsPage();
         System.out.println("createGroup");
     } // Путь создания группу
+
+    public void modifyGroup(int index, GroupData newGroupData) {
+        selectGroup(index);
+        editGroupModification();
+        newGroup(newGroupData);
+        updateGroupModification();
+        returnToGroupsPage();
+    }
+
 
     public void newGroup(GroupData groupData) {
         type("group_name", groupData.getName());
@@ -63,7 +72,7 @@ public class GroupHelper extends HelperBase{
         System.out.println("Clear group");
     } // Очистить информацию о группе
 
-    private void initGroupCreation() {
+    private void newGroupCreation() {
         click(By.name("new"));
     }
 
@@ -71,21 +80,24 @@ public class GroupHelper extends HelperBase{
         click(By.name("submit"));
     }
 
-    public void initGroupModification() {
+    public void editGroupModification() {
         timerSecond(3);
         click(By.name("edit"));
     }
 
-    public void submitGroupModification() {
+    public void updateGroupModification() {
     click(By.name("update"));
     }
 
-    public int counterGroups() {
-        //System.out.println((isElementPresent(By.xpath("//h1[text()=\"Groups\"]"))));
-        return waitFindElements(By.xpath("//input[@type=\"checkbox\"]")).size();
+
+    public void delete(List<GroupData> before) {
+       selectGroup(before.size() -1);
+       deleteGroup();
+       returnToGroupsPage();
     }
 
-    public List<GroupData> getGroupList() {
+
+    public List<GroupData> grouplist() {
         List<GroupData>elements = new ArrayList<>();
         /*if(!isElementPresent(By.cssSelector("span.group"))){
             createGroup(new GroupData(null, "Test1", null, null));
@@ -95,7 +107,11 @@ public class GroupHelper extends HelperBase{
         for(WebElement x : elementsWeb){
             int id = Integer.parseInt(x.findElement(By.tagName("input")).getAttribute("value"));
             String name = x.getText();
-            GroupData groupData = new GroupData(id, name, null, null);
+            GroupData groupData = new GroupData()
+                    .whithId(id)
+                    .withName(name)
+                    .withHeader(null)
+                    .withFooter(null);
             elements.add(groupData);
         }
 
