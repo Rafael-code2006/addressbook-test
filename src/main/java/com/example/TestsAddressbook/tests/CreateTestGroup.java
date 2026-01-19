@@ -1,34 +1,26 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.GroupData;
-import org.testng.Assert;
+import com.example.TestsAddressbook.model.Groups;
 import org.testng.annotations.*;
-
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class CreateTestGroup extends TestBase {
 
-  @Test
-  public void testGroupCreate() throws Exception {
+    @Test
+    public void testGroupCreate() throws Exception {
 
-      GroupData groupData = new GroupData()
-              .withName("Test1")
-              .withHeader("testGroup")
-              .withFooter("TestFooter");
-      app.goTo().groupPage();
-      Set<GroupData> before = app.group().all();
-      app.group().createGroup(groupData);
-      Set<GroupData> after = app.group().all();
-      Assert.assertEquals(after.size(), before.size()+1);
-
-      groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
-      before.add(groupData);
-      Assert.assertEquals(before,after);
-
-  }
-
-
+        app.goTo().groupPage();
+        Groups before = app.group().all();
+        GroupData groupData = new GroupData()
+                .withName("Test2");
+        app.group().createGroup(groupData);
+        assertThat(app.group().count(), equalTo(before.size()+1));
+        Groups after = app.group().all();
+        assertThat(after, equalTo(before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+    }
 
 
 }

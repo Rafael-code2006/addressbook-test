@@ -10,8 +10,9 @@ repositories {
 }
 
 dependencies {
+    implementation("org.hamcrest:hamcrest:2.1")
     implementation("org.testng:testng:6.9.10")
-    implementation("org.seleniumhq.selenium:selenium-java:3.14.0")
+    implementation("org.seleniumhq.selenium:selenium-java:2.52.0")
 }
 
 test {

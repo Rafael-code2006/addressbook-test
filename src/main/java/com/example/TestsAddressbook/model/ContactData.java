@@ -4,27 +4,13 @@ import java.util.Objects;
 
 public class ContactData {
 
-    private int id;
-    private String firstname;
-    private final String lastname;
-    private final String email;
-    private final String group;
+    private int id = Integer.MAX_VALUE;
+    private String firstname = null;
+    private String lastname = null;
+    private String email = null;
+    private String group = null;
 
-    public ContactData(int id, String firstname, String lastname, String email, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.group = group;
-    }
-
-    public ContactData(String firstname, String lastname, String email, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.group = group;
-    }
+    
 
     public String getFirstname() {
         return firstname;
@@ -46,7 +32,31 @@ public class ContactData {
         return id;
     }
 
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
 
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+    
+    public ContactData withFirstName(String s) {
+        this.firstname = s;
+        return this;
+    }
+    
     @Override
     public String toString() {
         return "ContactData{" +
@@ -61,21 +71,15 @@ public class ContactData {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstname, that.firstname);
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(firstname);
+        return Objects.hash(id);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String s) {
-        this.firstname = s;
-    }
 }

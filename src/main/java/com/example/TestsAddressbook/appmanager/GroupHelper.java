@@ -1,11 +1,11 @@
 package com.example.TestsAddressbook.appmanager;
 import com.example.TestsAddressbook.model.GroupData;
+import com.example.TestsAddressbook.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -28,18 +28,20 @@ public class GroupHelper extends HelperBase{
 
     public void createGroup(GroupData groupData){
         timerSecond(50);
-        newGroupCreation();
+        newGroupPage();
         newGroup(groupData);
         submitGroupCreation();
+        groupsCache = null;
         returnToGroupsPage();
         System.out.println("createGroup");
     } // Путь создания группу
 
-    public void modifyGroup(GroupData newGroup) {
+    public void modify(GroupData newGroup) {
         selectGroupById(newGroup.getId());
         editGroupModification();
         newGroup(newGroup);
         updateGroupModification();
+        groupsCache = null;
         returnToGroupsPage();
     }
 
@@ -58,7 +60,7 @@ public class GroupHelper extends HelperBase{
         }
     } // Проверка наличия групп
 
-    private void newGroupCreation() {
+    private void newGroupPage() {
         click(By.name("new"));
     }
 
@@ -78,17 +80,23 @@ public class GroupHelper extends HelperBase{
     public void delete(GroupData groupData) {
         selectGroupById(groupData.getId());
         deleteGroup();
+        groupsCache = null;
         returnToGroupsPage();
     }
 
-    public Set<GroupData> all() {
-        Set<GroupData> elements = new HashSet<>();
+    private Groups groupsCache = null;
+
+    public Groups all() {
+        if(groupsCache != null){
+            return new Groups(groupsCache);
+        }
+        groupsCache = new Groups();
         /*if(!isElementPresent(By.cssSelector("span.group"))){
             createGroup(new GroupData(null, "Test1", null, null));
         }
          */
         List<WebElement> elementsWeb = waitFindElements(By.cssSelector("span.group"));
-        for(WebElement x : elementsWeb){
+         for(WebElement x : elementsWeb){
             int id = Integer.parseInt(x.findElement(By.tagName("input")).getAttribute("value"));
             String name = x.getText();
             GroupData groupData = new GroupData()
@@ -96,9 +104,13 @@ public class GroupHelper extends HelperBase{
                     .withName(name)
                     .withHeader(null)
                     .withFooter(null);
-            elements.add(groupData);
+             groupsCache.add(groupData);
         }
 
-        return elements;
+        return new Groups(groupsCache);
+    }
+
+    public int count() {
+    return waitFindElements(By.name("selected[]")).size();
     }
 }

@@ -1,17 +1,16 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.GroupData;
-import org.testng.Assert;
+import com.example.TestsAddressbook.model.Groups;
 import org.testng.annotations.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.util.List;
-import java.util.Set;
-
-public class DeleteTestGroup extends TestBase {
+public class DeletedTestGroup extends TestBase {
 
 
     @BeforeMethod
-    public void esurePreconditions(){
+    public void ensurePreconditions(){
         GroupData groupData = new GroupData()
                 .withName("Test1")
                 .withHeader("testGroup")
@@ -21,14 +20,13 @@ public class DeleteTestGroup extends TestBase {
     }
 
     @Test
-  public void DeleteTestGroup() {
-        Set<GroupData> before = app.group().all();
+  public void DeletedTestGroup() {
+        Groups before = app.group().all();
         GroupData deletedGroup = before.iterator().next();
         app.group().delete(deletedGroup);
-        Set<GroupData> after = app.group().all();
-        Assert.assertEquals(after.size(),before.size()-1);
-        before.remove(deletedGroup);
-        Assert.assertEquals(before, after);
+        Groups after = app.group().all();
+        assertThat(app.group().count(), equalTo(before.size()-1));
+        assertThat(after, equalTo(before.without(deletedGroup)));
 
 
   }

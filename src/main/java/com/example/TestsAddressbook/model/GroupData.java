@@ -5,9 +5,9 @@ import java.util.Objects;
 public class GroupData {
 
     private int id = Integer.MAX_VALUE;;
-    private String name;
-    private String header;
-    private String footer;
+    private String name = null;
+    private String header = null;
+    private String footer = null;
 
 
     public int getId() {

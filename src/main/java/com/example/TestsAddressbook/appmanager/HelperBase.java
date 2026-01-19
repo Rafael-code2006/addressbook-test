@@ -40,10 +40,12 @@ public class HelperBase {
         }
     }
 
-    protected void type(String group_name, String test1) {
+    protected void type(String group_name, String text) {
         click(By.name(group_name));
         driver.findElement(By.name(group_name)).clear();
-        driver.findElement(By.name(group_name)).sendKeys(test1);
+        if(text != null) {
+            driver.findElement(By.name(group_name)).sendKeys(text);
+        }
     }
 
     protected boolean isElementPresent(By locator) {
