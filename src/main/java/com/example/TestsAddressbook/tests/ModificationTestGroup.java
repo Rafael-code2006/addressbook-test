@@ -1,7 +1,7 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.GroupData;
-import com.example.TestsAddressbook.model.Groups;
+import com.example.TestsAddressbook.model.MySet;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,7 +22,7 @@ public class ModificationTestGroup extends TestBase{
 
     @Test
     public void testGroupModification(){
-       Groups before = app.group().all();
+        MySet<GroupData> before = app.group().all();
         GroupData modifyGroup = before.iterator().next();
         GroupData newGroupData = new GroupData()
                 .withId(modifyGroup.getId())
@@ -31,7 +31,7 @@ public class ModificationTestGroup extends TestBase{
                 .withFooter("TestFooter");
         app.group().modify(newGroupData);
         assertThat(app.group().count(), equalTo(before.size()));
-        Groups after = app.group().all();
+        MySet<GroupData> after = app.group().all();
         assertThat(after, equalTo(before.without(modifyGroup).withAdded(newGroupData)));
     }
 

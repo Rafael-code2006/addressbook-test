@@ -1,13 +1,15 @@
 package com.example.TestsAddressbook.appmanager;
 
 import com.example.TestsAddressbook.model.ContactData;
-import com.example.TestsAddressbook.model.Contacts;
+import com.example.TestsAddressbook.model.MySet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ContactHelper extends HelperBase {
 
@@ -30,22 +32,31 @@ public class ContactHelper extends HelperBase {
         returnToHomePages();
     }
 
+    public void returnToHome(){
+        click(By.xpath("//a[text()='home']"));
+    }
+
     public void fillForm(ContactData contactData, boolean creation) {
-        type("firstname", contactData.getFirstname());
-        type("lastname", contactData.getLastname());
-        type("email", contactData.getEmail());
+        if (contactData.getFirstname() != null) {
+            type("firstname", contactData.getFirstname());
+        }
+        if (contactData.getLastname() != null) {
+            type("lastname", contactData.getLastname());
+        }
+        if (contactData.getEmail() != null) {
+            type("email", contactData.getEmail());
+        }
 
         if (creation) {
             try {
                 new Select(driver.findElement(By.name("new_group")))
                         .selectByVisibleText(contactData.getGroup());
                 save();
-            } catch(Exception ex){
+            } catch (Exception ex) {
                 save();
             }
-
         } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
+            Assert.assertTrue(isElementPresent(By.name("new_group")));
         }
     }
 
@@ -53,52 +64,65 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//*[@value='Enter']"));
     }
 
-    public void modify(Contacts before, ContactData contactData) {
-        select(before.iterator().next());
-        goToEdit(before.iterator().next());
-        fillForm(contactData, false);
+    public void modify(MySet<ContactData> before, ContactData modifyContact) {
+        if (before == null || before.isEmpty()) {
+            throw new IllegalArgumentException("Передан пустой набор контактов для модификации");
+        }
+        ContactData contact = before.iterator().next();
+        goToEdit(contact.getId());
+        fillForm(modifyContact, false);
         updateContact();
         contactCache = null;
         returnToHomePages();
+    }
+
+    private void timer(int l) {
+        driver.manage().timeouts().implicitlyWait(l, TimeUnit.SECONDS);
     }
 
     public void checking(ContactData contactData) {
         String user = contactData.getFirstname() + " " + contactData.getLastname();
         if (!isElementPresent(By.xpath("//input[@alt='Select (" + user + ")']"))) {
             create(contactData);
+            // обновляем id после создания
+            int newId = all().stream().mapToInt(ContactData::getId).max().getAsInt();
+            contactData.withId(newId);
         }
     }
 
     public void select(ContactData contactData) {
+        timer(30);
         click(By.cssSelector("input[value='" + contactData.getId() + "']"));
     }
 
-    public void goToEdit(ContactData contactData) {
-        click(By.xpath("//input[@value='" + contactData.getId() + "']/../../td[@class='center'][3]/a"));
+    public void goToEdit(int contactId) {
+        click(By.xpath("//input[@value='" + contactId + "']/../../td[@class='center'][3]/a"));
     }
 
     public void updateContact() {
         click(By.xpath("//*[@id='content']/form[1]/input[1]"));
     }
 
-    private Contacts contactCache;
+    private static MySet<ContactData> contactCache;
 
-    public Contacts all() {
-        if(contactCache != null){
-            return new Contacts(contactCache);
+    public MySet<ContactData> all() {
+        if (contactCache != null) {
+            return new MySet<ContactData>(contactCache);
         }
-        contactCache = new Contacts();
+        contactCache = new MySet<ContactData>();
         List<WebElement> elementsWeb = waitFindElements(By.xpath("//input[@name='selected[]']"));
-        for(WebElement x : elementsWeb){
+        for (WebElement x : elementsWeb) {
             String title = x.getAttribute("title");
-            String name = title.substring(title.indexOf("(") + 1, title.indexOf(")"));
-            int id = Integer.parseInt(x.getAttribute("id"));
-            contactCache.add(new ContactData().withId(id).withFirstName(name));
+            if (title != null && title.contains("(") && title.contains(")")) {
+                String name = title.substring(title.indexOf("(") + 1, title.indexOf(")"));
+                int id = Integer.parseInt(x.getAttribute("id"));
+                contactCache.add(new ContactData().withId(id).withFirstName(name));
+            }
         }
-        return new Contacts(contactCache);
+        return new MySet<ContactData>(contactCache);
     }
 
     public int count() {
-        return all().size();
+        return waitFindElements(By.name("selected[]")).size();
     }
 }

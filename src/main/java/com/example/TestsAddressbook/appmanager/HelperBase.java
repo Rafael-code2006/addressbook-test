@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
     protected WebDriver driver;
@@ -17,18 +15,8 @@ public class HelperBase {
     }
 
 
-
-
     protected void click(By locator) {
-        driver.findElement(locator).click();
-    }
-
-    protected void clear(By locator){
-        driver.findElement(locator).clear();
-    }
-
-    protected void timerSecond(int seconds){
-        driver.manage().timeouts().implicitlyWait(seconds ,TimeUnit.SECONDS);
+        waitFindElement(locator).click();
     }
 
     public boolean isAlertPresent() {
@@ -42,17 +30,17 @@ public class HelperBase {
 
     protected void type(String group_name, String text) {
         click(By.name(group_name));
-        driver.findElement(By.name(group_name)).clear();
+        waitFindElement(By.name(group_name)).clear();
         if(text != null) {
-            driver.findElement(By.name(group_name)).sendKeys(text);
+            waitFindElement(By.name(group_name)).sendKeys(text);
         }
     }
 
     protected boolean isElementPresent(By locator) {
             long currentTime = System.currentTimeMillis();
-            while(System.currentTimeMillis() < currentTime + 3000){
+            while(System.currentTimeMillis() < currentTime + 1000){
                 try {
-                    driver.findElement(locator);
+                    waitFindElement(locator);
                     return true;
                 }catch (Exception ex) {
                     // Do nothing
@@ -83,7 +71,7 @@ public class HelperBase {
 
     public WebElement waitFindElement(By locator) {
         long currentTime = System.currentTimeMillis();
-        while(System.currentTimeMillis() < currentTime + 3000){
+        while(System.currentTimeMillis() < currentTime + 1000){
             try{
                 return driver.findElement(locator);
             } catch (Exception ex){

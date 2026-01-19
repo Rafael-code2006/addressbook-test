@@ -1,6 +1,6 @@
 package com.example.TestsAddressbook.appmanager;
 import com.example.TestsAddressbook.model.GroupData;
-import com.example.TestsAddressbook.model.Groups;
+import com.example.TestsAddressbook.model.MySet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,6 @@ public class GroupHelper extends HelperBase{
     } // Выбор группы
 
     public void deleteGroup(){
-        timerSecond(30);
         click(By.name("delete"));
     } // Удаление группы
 
@@ -27,7 +26,6 @@ public class GroupHelper extends HelperBase{
     } // Возврат к списку групп
 
     public void createGroup(GroupData groupData){
-        timerSecond(50);
         newGroupPage();
         newGroup(groupData);
         submitGroupCreation();
@@ -47,11 +45,8 @@ public class GroupHelper extends HelperBase{
 
     public void newGroup(GroupData groupData) {
         type("group_name", groupData.getName());
-        timerSecond(20);
         type("group_header", groupData.getHeader());
-        timerSecond(20);
         type("group_footer", groupData.getFooter());
-        timerSecond(20);
     } // Создание группы
 
     public void checkingGroup(GroupData groupData) {
@@ -69,7 +64,6 @@ public class GroupHelper extends HelperBase{
     }
 
     public void editGroupModification() {
-        timerSecond(3);
         click(By.name("edit"));
     }
 
@@ -84,13 +78,13 @@ public class GroupHelper extends HelperBase{
         returnToGroupsPage();
     }
 
-    private Groups groupsCache = null;
+    private MySet<GroupData> groupsCache;
 
-    public Groups all() {
+    public MySet<GroupData> all() {
         if(groupsCache != null){
-            return new Groups(groupsCache);
+            return new MySet<GroupData>(groupsCache);
         }
-        groupsCache = new Groups();
+        groupsCache = new MySet<GroupData>();
         /*if(!isElementPresent(By.cssSelector("span.group"))){
             createGroup(new GroupData(null, "Test1", null, null));
         }
@@ -107,7 +101,7 @@ public class GroupHelper extends HelperBase{
              groupsCache.add(groupData);
         }
 
-        return new Groups(groupsCache);
+        return new MySet<GroupData>(groupsCache);
     }
 
     public int count() {

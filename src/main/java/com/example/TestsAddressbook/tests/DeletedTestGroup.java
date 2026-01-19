@@ -1,7 +1,7 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.GroupData;
-import com.example.TestsAddressbook.model.Groups;
+import com.example.TestsAddressbook.model.MySet;
 import org.testng.annotations.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,10 +21,10 @@ public class DeletedTestGroup extends TestBase {
 
     @Test
   public void DeletedTestGroup() {
-        Groups before = app.group().all();
+        MySet<GroupData> before = app.group().all();
         GroupData deletedGroup = before.iterator().next();
         app.group().delete(deletedGroup);
-        Groups after = app.group().all();
+        MySet<GroupData> after = app.group().all();
         assertThat(app.group().count(), equalTo(before.size()-1));
         assertThat(after, equalTo(before.without(deletedGroup)));
 

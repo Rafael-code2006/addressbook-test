@@ -1,13 +1,15 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.ContactData;
-import com.example.TestsAddressbook.model.Contacts;
+import com.example.TestsAddressbook.model.MySet;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ModificationTestContact extends TestBase{
+public class ModificationTestContact extends TestBase {
 
     private ContactData contactData = new ContactData()
             .withFirstName("Artem")
@@ -15,25 +17,30 @@ public class ModificationTestContact extends TestBase{
             .withEmail("art@mail.ru")
             .withGroup("Test2");
 
-
     @BeforeMethod
-   public void esurePreconditions(){
+    public void ensurePreconditions() {
         app.contact().checking(contactData);
-   }
+    }
 
     @Test
-    private void test(){
+    public void test() {
+        if(!app.isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
+            app.contact().returnToHome();
+        }
+        MySet<ContactData> before = app.contact().all();
+        ContactData modified = before.iterator().next();
+
         ContactData modifyContact = new ContactData()
-                .withId(contactData.getId())
+                .withId(modified.getId())
                 .withFirstName("Rafael")
                 .withLastname("Alekseev")
                 .withEmail("art@mail.ru")
                 .withGroup("Test2");
-        Contacts before = app.contact().all();
+
         app.contact().modify(before, modifyContact);
-        int counter = app.contact().count();
-        assertThat(counter, equalTo(before.size()));
-        Contacts after = app.contact().all();
-        assertThat(after, equalTo(before));
+
+        MySet<ContactData> after = app.contact().all();
+        assertThat(after.size(), equalTo(before.size()));
+        assertThat(after, equalTo(before.without(modified).withAdded(modifyContact)));
     }
 }
