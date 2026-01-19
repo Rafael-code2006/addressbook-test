@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ModificationTestGroup extends TestBase{
 
@@ -22,23 +23,19 @@ public class ModificationTestGroup extends TestBase{
 
     @Test
     public void testGroupModification(){
-        List<GroupData> before = app.group().grouplist();
-        int index = 0;
+        Set<GroupData> before = app.group().all();
+        GroupData modifyGroup = before.iterator().next();
         GroupData newGroupData = new GroupData()
-                .whithId(before.get(index).getId())
+                .withId(modifyGroup.getId())
                 .withName("Test1")
                 .withHeader("testGroup")
                 .withFooter("TestFooter");
-        app.group().modifyGroup(index, newGroupData);
-        List<GroupData> after = app.group().grouplist();
+        app.group().modifyGroup(newGroupData);
+        Set<GroupData> after = app.group().all();
 
 
-        before.remove(index);
+        before.remove(modifyGroup);
         before.add(newGroupData);
-
-        Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
     }
 

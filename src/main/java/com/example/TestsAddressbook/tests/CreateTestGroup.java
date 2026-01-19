@@ -4,8 +4,7 @@ import com.example.TestsAddressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 
 public class CreateTestGroup extends TestBase {
@@ -18,21 +17,13 @@ public class CreateTestGroup extends TestBase {
               .withHeader("testGroup")
               .withFooter("TestFooter");
       app.goTo().groupPage();
-      List<GroupData> before = app.group().grouplist();
+      Set<GroupData> before = app.group().all();
       app.group().createGroup(groupData);
-      List<GroupData> after = app.group().grouplist();
+      Set<GroupData> after = app.group().all();
       Assert.assertEquals(after.size(), before.size()+1);
 
+      groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
       before.add(groupData);
-      for(GroupData x : before){
-          System.out.println("before: " + x.getName());
-      }
-      for(GroupData x : after){
-          System.out.println("after: " + x.getName());
-      }
-      Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-      before.sort(byId);
-      after.sort(byId);
       Assert.assertEquals(before,after);
 
   }

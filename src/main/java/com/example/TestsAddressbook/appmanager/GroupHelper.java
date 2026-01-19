@@ -3,9 +3,9 @@ import com.example.TestsAddressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -13,11 +13,8 @@ public class GroupHelper extends HelperBase{
         super(driver);
     }
 
-
-
-    public void selectGroup(int index){
-        timerSecond(3);
-        waitFindElements(By.name("selected[]")).get(index).click();
+    public void selectGroupById(int id){
+        waitFindElement(By.cssSelector("input[value='"+ id +"']")).click();
     } // Выбор группы
 
     public void deleteGroup(){
@@ -38,14 +35,13 @@ public class GroupHelper extends HelperBase{
         System.out.println("createGroup");
     } // Путь создания группу
 
-    public void modifyGroup(int index, GroupData newGroupData) {
-        selectGroup(index);
+    public void modifyGroup(GroupData newGroup) {
+        selectGroupById(newGroup.getId());
         editGroupModification();
-        newGroup(newGroupData);
+        newGroup(newGroup);
         updateGroupModification();
         returnToGroupsPage();
     }
-
 
     public void newGroup(GroupData groupData) {
         type("group_name", groupData.getName());
@@ -61,16 +57,6 @@ public class GroupHelper extends HelperBase{
             createGroup(groupData);
         }
     } // Проверка наличия групп
-
-    public void clearGroup(){
-        clear(By.name("group_name"));
-        timerSecond(20);
-        clear(By.name("group_header"));
-        timerSecond(20);
-        clear(By.name("group_footer"));
-        timerSecond(20);
-        System.out.println("Clear group");
-    } // Очистить информацию о группе
 
     private void newGroupCreation() {
         click(By.name("new"));
@@ -89,16 +75,14 @@ public class GroupHelper extends HelperBase{
     click(By.name("update"));
     }
 
-
-    public void delete(List<GroupData> before) {
-       selectGroup(before.size() -1);
-       deleteGroup();
-       returnToGroupsPage();
+    public void delete(GroupData groupData) {
+        selectGroupById(groupData.getId());
+        deleteGroup();
+        returnToGroupsPage();
     }
 
-
-    public List<GroupData> grouplist() {
-        List<GroupData>elements = new ArrayList<>();
+    public Set<GroupData> all() {
+        Set<GroupData> elements = new HashSet<>();
         /*if(!isElementPresent(By.cssSelector("span.group"))){
             createGroup(new GroupData(null, "Test1", null, null));
         }
@@ -108,7 +92,7 @@ public class GroupHelper extends HelperBase{
             int id = Integer.parseInt(x.findElement(By.tagName("input")).getAttribute("value"));
             String name = x.getText();
             GroupData groupData = new GroupData()
-                    .whithId(id)
+                    .withId(id)
                     .withName(name)
                     .withHeader(null)
                     .withFooter(null);
