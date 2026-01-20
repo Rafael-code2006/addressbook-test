@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.DoubleToIntFunction;
@@ -37,6 +39,11 @@ public class HelperBase {
         }
     }
 
+    protected void attach(By locator, File file) {
+        if(file != null) {
+            waitFindElement(locator).sendKeys(file.getAbsolutePath());
+        }
+    }
     protected boolean isElementPresent(By locator) {
             long currentTime = System.currentTimeMillis();
             while(System.currentTimeMillis() < currentTime + 1000){

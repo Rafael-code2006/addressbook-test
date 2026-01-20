@@ -1,19 +1,30 @@
 package com.example.TestsAddressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
 
     private int id = Integer.MAX_VALUE;
-    private String firstname = null;
-    private String lastname = null;
-    private String email = null;
-    private String home = null;
-    private String mobile = null;
-    private String work = null;
-    private String allPhones = null;
-    private String group = null;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String home;
+    private String mobile;
+    private String work;
+    private String allPhones;
+    private String group;
+    private File file;
 
+
+    public File getFile() {
+        return file;
+    }
+
+    public ContactData withFile(File file) {
+        this.file = file;
+        return this;
+    }
 
     public String getAllPhones() {
         return allPhones;
@@ -107,7 +118,9 @@ public class ContactData {
                 ", home='" + home + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", work='" + work + '\'' +
+                ", allPhones='" + allPhones + '\'' +
                 ", group='" + group + '\'' +
+                ", file=" + file +
                 '}';
     }
 

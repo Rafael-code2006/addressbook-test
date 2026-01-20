@@ -26,7 +26,10 @@ public class ContactHelper extends HelperBase {
     }
 
     private void goToAddNew() {
-        driver.findElement(By.linkText("add new")).click();
+        if(!isElementPresent(By.id("maintable"))){
+            return;
+        }
+        click(By.linkText("add new"));
     }
 
     public void returnToHomePages() {
@@ -34,6 +37,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void create(ContactData contactData) {
+        System.out.println(contactData.toString());
         goToAddNew();
         fillForm(contactData, true);
         contactCache = null;
@@ -54,6 +58,7 @@ public class ContactHelper extends HelperBase {
         if (contactData.getEmail() != null) {
             type("email", contactData.getEmail());
         }
+            attach(By.xpath("//input[@name=\"photo\"]"), contactData.getFile());
 
         if (creation) {
             try {
@@ -134,12 +139,6 @@ public class ContactHelper extends HelperBase {
                         .setAllPhones(allPhones));
             }
         return new MySet<ContactData>(contactCache);
-    }
-
-    public void checkedPageHome() {
-        if(!isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
-            returnToHome();
-        }
     }
 
     public int count() {

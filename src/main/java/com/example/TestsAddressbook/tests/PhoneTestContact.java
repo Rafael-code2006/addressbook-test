@@ -1,6 +1,8 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.model.ContactData;
+import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -11,10 +13,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PhoneTestContact extends TestBase{
 
+    @BeforeMethod
+    public void before(){
+        if(!app.isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
+            app.contact().returnToHome();
+        }
+    }
 
     @Test
     public void test() {
-        app.contact().checkedPageHome();
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 

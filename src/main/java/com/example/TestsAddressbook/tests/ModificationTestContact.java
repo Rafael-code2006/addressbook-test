@@ -19,12 +19,14 @@ public class ModificationTestContact extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
+        if(!app.isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
+            app.contact().returnToHome();
+        }
         app.contact().checking(contactData);
     }
 
     @Test
     public void test() {
-        app.contact().checkedPageHome();
         MySet<ContactData> before = app.contact().all();
         ContactData modified = before.iterator().next();
 
