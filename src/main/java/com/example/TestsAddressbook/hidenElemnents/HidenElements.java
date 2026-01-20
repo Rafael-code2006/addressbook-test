@@ -1,29 +1,21 @@
 package com.example.TestsAddressbook.hidenElemnents;
 
+import com.example.TestsAddressbook.model.ContactData;
+import com.example.TestsAddressbook.model.MySet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class HidenElements extends HideElementsHelper {
 
     @Test
     public void testCheckboxes() {
-
-        List<WebElement> elementsWeb = driver.findElements(By.xpath("//input[@name='selected[]']"));
-
-
-        Assert.assertTrue(elementsWeb.size() > 0, "Не найдено ни одного чекбокса!");
+        List<WebElement> elements = driver.findElements(By.xpath("//td"));
 
 
-        for (WebElement input : elementsWeb) {
-            String id = input.getAttribute("id");
-            String title = input.getAttribute("title");
-            String name = title.substring(title.indexOf("(") + 1, title.indexOf(")"));
-            String email = input.getAttribute("accept");
-            System.out.println("Checkbox id=" + id + ", title=" + name + ", email=" + email);
-        }
     }
 }

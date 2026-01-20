@@ -24,9 +24,7 @@ public class ModificationTestContact extends TestBase {
 
     @Test
     public void test() {
-        if(!app.isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
-            app.contact().returnToHome();
-        }
+        app.contact().checkedPageHome();
         MySet<ContactData> before = app.contact().all();
         ContactData modified = before.iterator().next();
 

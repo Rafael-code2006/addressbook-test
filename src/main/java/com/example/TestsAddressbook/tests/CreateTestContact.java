@@ -14,6 +14,7 @@ public class CreateTestContact extends TestBase {
 
     @Test
     private void test(){
+        app.contact().checkedPageHome();
         ContactData contactData = new ContactData()
                 .withFirstName("Rafael")
                 .withLastname("Gimadeyev")

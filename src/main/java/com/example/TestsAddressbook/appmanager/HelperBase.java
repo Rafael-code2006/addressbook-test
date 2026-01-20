@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.DoubleToIntFunction;
 
 public class HelperBase {
     protected WebDriver driver;
@@ -71,7 +72,7 @@ public class HelperBase {
 
     public WebElement waitFindElement(By locator) {
         long currentTime = System.currentTimeMillis();
-        while(System.currentTimeMillis() < currentTime + 1000){
+        while(System.currentTimeMillis() < currentTime + 500){
             try{
                 return driver.findElement(locator);
             } catch (Exception ex){
