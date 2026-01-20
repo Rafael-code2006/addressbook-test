@@ -1,9 +1,11 @@
 package com.example.TestsAddressbook.tests;
 
+import com.example.TestsAddressbook.generators.GroupDataGenerator;
 import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
 import org.testng.annotations.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,30 +15,39 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class CreateTestGroup extends TestBase {
-
     @DataProvider
-    public Iterator<Object[]> validProvider(){
-        List<Object[]> list = new ArrayList<Object[]>();
-        list.add(new Object[] {"test1", "header 1", "footer 1"});
-        list.add(new Object[] {"test2", "header 2", "footer 2"});
-        list.add(new Object[] {"test3", "header 3", "footer 3"});
+    public Iterator<Object[]> validProvider() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/groups.csv");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] split = line.split(";");
+                if (split.length >= 3) {
+                    list.add(new Object[]{
+                            new GroupData()
+                                    .withName(split[0])
+                                    .withHeader(split[1])
+                                    .withFooter(split[2])
+                    });
+                }
+            }
+        }
         return list.iterator();
     }
 
 
 
+
     @Test(dataProvider = "validProvider")
-    public void testGroupCreate(String name, String header, String footer) throws Exception {
-        GroupData groupData = new GroupData()
-                .withName(name)
-                .withHeader(header)
-                .withFooter(footer);
+    public void testGroupCreate(GroupData groupDataNew) throws Exception {
         app.goTo().groupPage();
         MySet<GroupData> before = app.group().all();
-        app.group().createGroup(groupData);
+        app.group().createGroup(groupDataNew);
         assertThat(app.group().count(), equalTo(before.size()+1));
         MySet<GroupData> after = app.group().all();
-        assertThat(after, equalTo(before.withAdded(groupData.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+        assertThat(after, equalTo(before.withAdded(groupDataNew.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
 
 
