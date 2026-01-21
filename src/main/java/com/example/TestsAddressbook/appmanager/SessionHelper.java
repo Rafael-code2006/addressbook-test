@@ -11,7 +11,6 @@ public class SessionHelper extends HelperBase {
 
 
     public void login(String username, String password){
-        driver.get("http://localhost/addressbook");
         type("user", username);
         type("pass", password);
         driver.findElement(By.xpath("//input[@value='Login']")).click();

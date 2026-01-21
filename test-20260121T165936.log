@@ -1,0 +1,1 @@
+2026-01-21 16:59:38 INFO  c.e.TestsAddressbook.tests.TestBase - Start test method, with parameters [ContactData{id=2147483647, firstname='FirstName: 0', lastname='LastName: 0', email='Email: 0', home='null', mobile='Mobile: 0', work='null', allPhones='null', group='null', file=null}]

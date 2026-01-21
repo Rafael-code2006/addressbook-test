@@ -37,9 +37,10 @@ public class ContactHelper extends HelperBase {
     }
 
     public void create(ContactData contactData) {
-        System.out.println(contactData.toString());
         goToAddNew();
-        fillForm(contactData, true);
+        if(contactData != null) {
+            fillForm(contactData, true);
+        }
         contactCache = null;
         returnToHomePages();
     }
@@ -58,7 +59,9 @@ public class ContactHelper extends HelperBase {
         if (contactData.getEmail() != null) {
             type("email", contactData.getEmail());
         }
+        if (contactData.getFile() != null) {
             attach(By.xpath("//input[@name=\"photo\"]"), contactData.getFile());
+        }
 
         if (creation) {
             try {

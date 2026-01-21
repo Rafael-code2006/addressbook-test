@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ModificationTestGroup extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod()
     public void esurePreconditions(){
         GroupData groupData = new GroupData()
                 .withName("Test1")

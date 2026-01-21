@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.tests.CreateTestContact" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-21T07:13:48.370Z" hostname="RA_GIMADEYEV" time="7.281">
+<testsuite name="com.example.TestsAddressbook.tests.CreateTestContact" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-21T12:08:32.554Z" hostname="RA_GIMADEYEV" time="21.358">
   <properties/>
-  <testcase name="test" classname="com.example.TestsAddressbook.tests.CreateTestContact" time="7.281"/>
-  <system-out><![CDATA[ContactData{id=2147483647, firstname='Photo', lastname='Photeyev', email='rgg@mail.ru', home='null', mobile='null', work='null', allPhones='null', group='Test2', file=src\test\resources\photo.png}
+  <testcase name="test[0](ContactData{id=2147483647, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='Mobile 0', work='null', allPhones='null', group='null', file=null})" classname="com.example.TestsAddressbook.tests.CreateTestContact" time="10.364"/>
+  <testcase name="test[1](ContactData{id=2147483647, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='Mobile 1', work='null', allPhones='null', group='null', file=null})" classname="com.example.TestsAddressbook.tests.CreateTestContact" time="5.137"/>
+  <testcase name="test[2](ContactData{id=2147483647, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='Mobile 2', work='null', allPhones='null', group='null', file=null})" classname="com.example.TestsAddressbook.tests.CreateTestContact" time="5.827"/>
+  <system-out><![CDATA[FirstName 0
+FirstName 1
+FirstName 2
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

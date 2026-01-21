@@ -1,13 +1,9 @@
 package com.example.TestsAddressbook.tests;
-
 import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.MySet;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.io.File;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -22,16 +18,8 @@ public class CreateTestContact extends TestBase {
         }
     }
 
-    @Test
-    private void test(){
-        File photo = new File("src/test/resources/photo.png");
-        ContactData contactData = new ContactData()
-                .withFirstName("Photo")
-                .withLastname("Photeyev")
-                .withFile(photo)
-                .withEmail("rgg@mail.ru")
-                .withGroup("Test2");
-
+    @Test(dataProvider = "validProviderFromJsonToContact", dataProviderClass = TestBase.class)
+    public void test(ContactData contactData){
         MySet<ContactData> before = app.contact().all();
         app.contact().create(contactData);
         MySet<ContactData> after = app.contact().all();

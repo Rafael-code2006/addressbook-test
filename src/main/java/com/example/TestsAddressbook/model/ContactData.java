@@ -1,15 +1,21 @@
 package com.example.TestsAddressbook.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
 
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String firstname;
+    @Expose
     private String lastname;
+    @Expose
     private String email;
     private String home;
+    @Expose
     private String mobile;
     private String work;
     private String allPhones;

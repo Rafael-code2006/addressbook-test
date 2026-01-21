@@ -1,13 +1,37 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.appmanager.ApplicationManager;
+import com.example.TestsAddressbook.model.GroupData;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.thoughtworks.xstream.XStream;
 import org.openqa.selenium.remote.BrowserType;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+    protected static final ApplicationManager app;
+    private static final Logger log = LoggerFactory.getLogger(TestBase.class);
+
+    static {
+        try {
+            app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @BeforeSuite
     public void setUp() throws Exception {
@@ -18,4 +42,43 @@ public class TestBase {
     public void tearDown() throws Exception {
         app.stop();
     }
+
+    @BeforeMethod
+    public void logTestStart(Method m, Object[] p){
+        log.info(String.format("Start %s method, with parameters %s", m.getName(), Arrays.asList(p)));
+    }
+
+    @AfterMethod
+    public void logTestStop(Method m, Object[] p){
+        log.info(String.format("Stop %s method, with parameters %s", m.getName(), Arrays.asList(p)));
+    }
+
+
+    @DataProvider
+    public Iterator<Object[]> validProviderFromJsonToGroup() throws IOException {
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/groups.xml");
+        return ApplicationManager.jsonParserGroup(file);
+    }
+
+
+    @DataProvider
+    public Iterator<Object[]> validProviderFromXmlToGroup() throws IOException {
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/groups.xml");
+        return ApplicationManager.xmlParserGroup(file);
+    }
+
+
+    @DataProvider
+    public Iterator<Object[]> validProviderFromJsonToContact() throws IOException {
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/contacts.json");
+        return ApplicationManager.jsonParserContact(file);
+    }
+
+
+    @DataProvider
+    public Iterator<Object[]> validProviderFromXmlToContacts() throws IOException {
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/contacts.xml");
+        return ApplicationManager.xmlParserContact(file);
+    }
+
 }

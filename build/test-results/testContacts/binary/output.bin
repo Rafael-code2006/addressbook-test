@@ -1,1 +1,3 @@
-ÆContactData{id=2147483647, firstname='Photo', lastname='Photeyev', email='rgg@mail.ru', home='null', mobile='null', work='null', allPhones='null', group='Test2', file=src\test\resources\photo.png}
+FirstName 0
+FirstName 1
+FirstName 2
