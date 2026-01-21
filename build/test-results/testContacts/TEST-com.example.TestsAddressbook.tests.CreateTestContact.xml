@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestsAddressbook.tests.CreateTestContact" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-21T07:13:48.370Z" hostname="RA_GIMADEYEV" time="7.281">
+  <properties/>
+  <testcase name="test" classname="com.example.TestsAddressbook.tests.CreateTestContact" time="7.281"/>
+  <system-out><![CDATA[ContactData{id=2147483647, firstname='Photo', lastname='Photeyev', email='rgg@mail.ru', home='null', mobile='null', work='null', allPhones='null', group='Test2', file=src\test\resources\photo.png}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

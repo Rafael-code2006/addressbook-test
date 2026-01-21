@@ -4,11 +4,12 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import com.example.TestsAddressbook.model.GroupData;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParser;
+import com.thoughtworks.xstream.XStream;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,10 @@ public class GroupDataGenerator {
 
     @Parameter(names = "-f", description = "Target file")
     public String file;
+
+    @Parameter(names = "-d", description = "Data format")
+    public String format;
+
 
     public static void main(String[] args) throws IOException {
         GroupDataGenerator generator = new GroupDataGenerator();
@@ -37,17 +42,50 @@ public class GroupDataGenerator {
 
     private void run( ) throws IOException {
         List<GroupData> group = generateGroups(count);
-        save(group, new File(file));
+        if(format.equals("csv")) {
+            saveAsCsv(group, new File(file));
+        }
+        else if(format.equals("xml")){
+            saveAsXml(group, new File(file));
+        }
+        else if(format.equals("json")){
+            saveAsJson(group, new File(file));
+        }
+        else {
+                System.out.println("Unrecognized format");
+        }
     }
 
-    private void save(List<GroupData> group, File file) throws IOException {
-        System.out.println(new File(".").getAbsolutePath());
+    private void saveAsJson(List<GroupData> group, File file) throws FileNotFoundException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(group);
+        try(Writer writer = new FileWriter(file)){
+            writer.write(json);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
-            Writer writer = new FileWriter(file);
-            for(GroupData x : group){
-                writer.write(String.format("%s;%s;%s%n", x.getName(), x.getHeader(), x.getFooter()));
+    private void saveAsXml(List<GroupData> group, File file) throws IOException {
+        XStream xStream = new XStream();
+        xStream.alias("group",GroupData.class);
+        String xml = xStream.toXML(group);
+
+        try(Writer writer = new FileWriter(file)){
+            writer.write(xml);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void saveAsCsv(List<GroupData> group, File file) throws IOException {
+
+
+            try(Writer writer = new FileWriter(file)) {
+                for (GroupData x : group) {
+                    writer.write(String.format("%s;%s;%s%n", x.getName(), x.getHeader(), x.getFooter()));
+                }
             }
-            writer.close();
     }
 
     private List<GroupData> generateGroups(int count) {
