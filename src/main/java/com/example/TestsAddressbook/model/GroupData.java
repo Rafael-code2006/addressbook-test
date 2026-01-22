@@ -1,21 +1,29 @@
 package com.example.TestsAddressbook.model;
 
 import com.google.gson.annotations.Expose;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 
-
+@Entity
+@Table(name = "group_list")
 public class GroupData {
 
+    @Id
+    @Column(name = "group_id")
     private int id = Integer.MAX_VALUE;
     @Expose
+    @Column(name = "group_name")
     private String name = null;
     @Expose
+    @Column(name = "group_header")
     private String header = null;
     @Expose
+    @Column(name = "group_footer")
     private String footer = null;
 
 
@@ -36,15 +44,15 @@ public class GroupData {
     }
 
 
-
     @Override
     public String toString() {
         return "GroupData{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
+                ", header='" + header + '\'' +
+                ", footer='" + footer + '\'' +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {

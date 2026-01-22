@@ -1,0 +1,4 @@
+2026-01-22 10:17:58 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.1.0.Final}
+2026-01-22 10:17:58 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2026-01-22 10:17:58 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2026-01-22 10:17:58 WARN  org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.

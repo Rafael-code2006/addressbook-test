@@ -56,7 +56,7 @@ public class TestBase {
 
     @DataProvider
     public Iterator<Object[]> validProviderFromJsonToGroup() throws IOException {
-        File file = new File("D:/Java/addressbook-web-test/src/test/resources/groups.xml");
+        File file = new File("D:/Java/addressbook-web-test/src/test/resources/groups.json");
         return ApplicationManager.jsonParserGroup(file);
     }
 

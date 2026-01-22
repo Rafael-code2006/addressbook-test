@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestsAddressbook.tests.HbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-22T06:48:01.980Z" hostname="RA_GIMADEYEV" time="0.115">
+  <properties/>
+  <testcase name="testHbConnection" classname="com.example.TestsAddressbook.tests.HbConnectionTest" time="0.115"/>
+  <system-out><![CDATA[Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_0_,
+        groupdata0_.group_footer as group_fo2_0_,
+        groupdata0_.group_header as group_he3_0_,
+        groupdata0_.group_name as group_na4_0_ 
+    from
+        group_list groupdata0_
+Все сработало: 
+
+GroupData{id=138, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=139, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=140, name='Test10', header='testGroup', footer='TestFooter'}
+GroupData{id=141, name='Test10', header='testGroup', footer='TestFooter'}
+GroupData{id=142, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=143, name='Test2', header='', footer=''}
+GroupData{id=144, name='Test2', header='', footer=''}
+GroupData{id=145, name='Test2', header='', footer=''}
+GroupData{id=171, name='Test2', header='', footer=''}
+GroupData{id=172, name='Test2', header='', footer=''}
+GroupData{id=173, name='Test2', header='', footer=''}
+GroupData{id=174, name='Test2', header='', footer=''}
+GroupData{id=175, name='Test2', header='', footer=''}
+GroupData{id=176, name='Test2', header='', footer=''}
+GroupData{id=177, name='Test2', header='', footer=''}
+GroupData{id=200, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=201, name='test3', header='header 3', footer='footer 3'}
+GroupData{id=202, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=203, name='test2', header='header 2', footer='footer 2'}
+GroupData{id=204, name='test3', header='header 3', footer='footer 3'}
+GroupData{id=205, name='test1', header='header 1', footer='footer 1'}
+GroupData{id=206, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=207, name='test3', header='header 3', footer='footer 3'}
+GroupData{id=208, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=210, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=211, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=212, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=213, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=214, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=215, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=216, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=217, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=218, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=219, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=220, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=221, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=222, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=223, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=224, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=225, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=226, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=227, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=228, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=229, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=230, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=231, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=232, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=233, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=234, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=235, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=236, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=237, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=239, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=240, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=241, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=243, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=244, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=245, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=247, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=248, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=249, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=251, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=252, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=253, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=254, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=255, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=256, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=257, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=258, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=259, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=260, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=261, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=262, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=263, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=264, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=265, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=266, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=267, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=268, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=269, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=270, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=271, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=272, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=273, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=274, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=275, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=276, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=277, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=278, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=280, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=281, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=282, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=283, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=284, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=285, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=286, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=287, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=288, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=289, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=290, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=291, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=292, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=293, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=294, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=295, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=296, name='Test1', header='testGroup', footer='TestFooter'}
+GroupData{id=297, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=298, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=299, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=300, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=301, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=302, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=303, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=305, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=306, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=307, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=308, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=309, name='test 9', header='header 9', footer='footer 9'}
+GroupData{id=310, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=311, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=312, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=313, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=314, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=315, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=316, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=317, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=318, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=319, name='test 3', header='header 3', footer='footer 3'}
+GroupData{id=320, name='test 4', header='header 4', footer='footer 4'}
+GroupData{id=321, name='test 5', header='header 5', footer='footer 5'}
+GroupData{id=322, name='test 6', header='header 6', footer='footer 6'}
+GroupData{id=323, name='test 7', header='header 7', footer='footer 7'}
+GroupData{id=324, name='test 8', header='header 8', footer='footer 8'}
+GroupData{id=325, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=326, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=327, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=328, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=329, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=330, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=331, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=332, name='test 2', header='header 2', footer='footer 2'}
+GroupData{id=333, name='test 0', header='header 0', footer='footer 0'}
+GroupData{id=334, name='test 1', header='header 1', footer='footer 1'}
+GroupData{id=335, name='test 2', header='header 2', footer='footer 2'}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

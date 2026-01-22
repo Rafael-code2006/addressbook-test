@@ -1,0 +1,155 @@
+Hibernate: 
+    select
+/        groupdata0_.group_id as group_id1_0_,
+3        groupdata0_.group_footer as group_fo2_0_,
+3        groupdata0_.group_header as group_he3_0_,
+1        groupdata0_.group_name as group_na4_0_ 
+
+    from
+         group_list groupdata0_
+Все сработало: 
+
+JGroupData{id=138, name='Test1', header='testGroup', footer='TestFooter'}
+JGroupData{id=139, name='Test1', header='testGroup', footer='TestFooter'}
+KGroupData{id=140, name='Test10', header='testGroup', footer='TestFooter'}
+KGroupData{id=141, name='Test10', header='testGroup', footer='TestFooter'}
+JGroupData{id=142, name='Test1', header='testGroup', footer='TestFooter'}
+7GroupData{id=143, name='Test2', header='', footer=''}
+7GroupData{id=144, name='Test2', header='', footer=''}
+7GroupData{id=145, name='Test2', header='', footer=''}
+7GroupData{id=171, name='Test2', header='', footer=''}
+7GroupData{id=172, name='Test2', header='', footer=''}
+7GroupData{id=173, name='Test2', header='', footer=''}
+7GroupData{id=174, name='Test2', header='', footer=''}
+7GroupData{id=175, name='Test2', header='', footer=''}
+7GroupData{id=176, name='Test2', header='', footer=''}
+7GroupData{id=177, name='Test2', header='', footer=''}
+JGroupData{id=200, name='Test1', header='testGroup', footer='TestFooter'}
+GGroupData{id=201, name='test3', header='header 3', footer='footer 3'}
+JGroupData{id=202, name='Test1', header='testGroup', footer='TestFooter'}
+GGroupData{id=203, name='test2', header='header 2', footer='footer 2'}
+GGroupData{id=204, name='test3', header='header 3', footer='footer 3'}
+GGroupData{id=205, name='test1', header='header 1', footer='footer 1'}
+JGroupData{id=206, name='Test1', header='testGroup', footer='TestFooter'}
+GGroupData{id=207, name='test3', header='header 3', footer='footer 3'}
+HGroupData{id=208, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=210, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=211, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=212, name='test 1', header='header 1', footer='footer 1'}
+JGroupData{id=213, name='Test1', header='testGroup', footer='TestFooter'}
+HGroupData{id=214, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=215, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=216, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=217, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=218, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=219, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=220, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=221, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=222, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=223, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=224, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=225, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=226, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=227, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=228, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=229, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=230, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=231, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=232, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=233, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=234, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=235, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=236, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=237, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=239, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=240, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=241, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=243, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=244, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=245, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=247, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=248, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=249, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=251, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=252, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=253, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=254, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=255, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=256, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=257, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=258, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=259, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=260, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=261, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=262, name='test 1', header='header 1', footer='footer 1'}
+JGroupData{id=263, name='Test1', header='testGroup', footer='TestFooter'}
+HGroupData{id=264, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=265, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=266, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=267, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=268, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=269, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=270, name='test 9', header='header 9', footer='footer 9'}
+JGroupData{id=271, name='Test1', header='testGroup', footer='TestFooter'}
+HGroupData{id=272, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=273, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=274, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=275, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=276, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=277, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=278, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=280, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=281, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=282, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=283, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=284, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=285, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=286, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=287, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=288, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=289, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=290, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=291, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=292, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=293, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=294, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=295, name='test 0', header='header 0', footer='footer 0'}
+JGroupData{id=296, name='Test1', header='testGroup', footer='TestFooter'}
+HGroupData{id=297, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=298, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=299, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=300, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=301, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=302, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=303, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=305, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=306, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=307, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=308, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=309, name='test 9', header='header 9', footer='footer 9'}
+HGroupData{id=310, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=311, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=312, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=313, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=314, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=315, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=316, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=317, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=318, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=319, name='test 3', header='header 3', footer='footer 3'}
+HGroupData{id=320, name='test 4', header='header 4', footer='footer 4'}
+HGroupData{id=321, name='test 5', header='header 5', footer='footer 5'}
+HGroupData{id=322, name='test 6', header='header 6', footer='footer 6'}
+HGroupData{id=323, name='test 7', header='header 7', footer='footer 7'}
+HGroupData{id=324, name='test 8', header='header 8', footer='footer 8'}
+HGroupData{id=325, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=326, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=327, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=328, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=329, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=330, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=331, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=332, name='test 2', header='header 2', footer='footer 2'}
+HGroupData{id=333, name='test 0', header='header 0', footer='footer 0'}
+HGroupData{id=334, name='test 1', header='header 1', footer='footer 1'}
+HGroupData{id=335, name='test 2', header='header 2', footer='footer 2'}
