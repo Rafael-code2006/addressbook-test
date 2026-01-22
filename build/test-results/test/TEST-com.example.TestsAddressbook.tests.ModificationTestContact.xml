@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestsAddressbook.tests.ModificationTestContact" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-22T09:51:02.740Z" hostname="RA_GIMADEYEV" time="1.442">
+  <properties/>
+  <testcase name="test" classname="com.example.TestsAddressbook.tests.ModificationTestContact" time="1.442"/>
+  <system-out><![CDATA[Hibernate: 
+    select
+        contactdat0_.id as id1_0_,
+        contactdat0_.email as email2_0_,
+        contactdat0_.file as file3_0_,
+        contactdat0_.firstname as firstnam4_0_,
+        contactdat0_.lastname as lastname5_0_,
+        contactdat0_.mobile as mobile6_0_ 
+    from
+        addressbook contactdat0_ 
+    where
+        deprecated is null
+Все сработало: 
+
+ContactData{id=211, firstname='Rafael', lastname='Alekseev', email='art@mail.ru', home='null', mobile='111', work='null', allPhones='null', group='null', file=null}
+ContactData{id=213, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=214, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=215, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=216, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=217, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=218, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+Hibernate: 
+    select
+        contactdat0_.id as id1_0_,
+        contactdat0_.email as email2_0_,
+        contactdat0_.file as file3_0_,
+        contactdat0_.firstname as firstnam4_0_,
+        contactdat0_.lastname as lastname5_0_,
+        contactdat0_.mobile as mobile6_0_ 
+    from
+        addressbook contactdat0_ 
+    where
+        deprecated is null
+Все сработало: 
+
+ContactData{id=211, firstname='Rafael', lastname='Alekseev', email='art@mail.ru', home='null', mobile='111', work='null', allPhones='null', group='null', file=null}
+ContactData{id=213, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=214, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=215, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=216, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=217, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+ContactData{id=218, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='', work='null', allPhones='null', group='null', file=null}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

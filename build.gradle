@@ -10,57 +10,42 @@ repositories {
 }
 
 dependencies {
-    implementation ("org.hibernate:hibernate-core:5.6.15.Final")
-    implementation("com.mysql:mysql-connector-j:8.0.31")
-    implementation("ch.qos.logback:logback-classic:1.1.5")
-    implementation("com.google.code.gson:gson:2.6.1")
-    implementation("org.jcommander:jcommander:1.83")
-    implementation("xstream:xstream:1.2.2")
-    implementation("org.hamcrest:hamcrest:2.1")
-    implementation("org.testng:testng:6.9.10")
-    implementation("org.seleniumhq.selenium:selenium-java:2.52.0")
+    implementation "org.hibernate:hibernate-core:5.6.15.Final"
+    implementation "com.mysql:mysql-connector-j:8.0.31"
+    implementation "ch.qos.logback:logback-classic:1.1.5"
+    implementation "com.google.code.gson:gson:2.6.1"
+    implementation "org.jcommander:jcommander:1.83"
+    implementation "xstream:xstream:1.2.2"
+    implementation "org.hamcrest:hamcrest:2.1"
+    implementation "org.testng:testng:6.9.10"
+    implementation "org.seleniumhq.selenium:selenium-java:2.52.0"
 }
 
-sourceSets {
-    test {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/test/resources']
-        }
-    }
-}
-
-test{
+test {
     useTestNG()
-    systemProperty 'hibernate.connection.password', '1sN!se4[A](DMU@T'
-    if(project.hasProperty('browser')) {
-        systemProperty('browser', "${browser}")
-    }
 
-    if(project.hasProperty('target')) {
-        systemProperty('target', "${target}")
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
     }
 }
 
 tasks.register('testGroups', Test) {
-    useTestNG() {
+    useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
 }
 
 tasks.register('testContacts', Test) {
-    useTestNG() {
+    useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
     }
-    if(project.hasProperty('browser')) {
-        systemProperty('browser', "${browser}")
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
     }
-
-    if(project.hasProperty('target')) {
-        systemProperty('target', "${target}")
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
     }
-
 }
-

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.tests.CreateTestGroup" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-21T12:44:56.749Z" hostname="RA_GIMADEYEV" time="34.303">
+<testsuite name="com.example.TestsAddressbook.tests.CreateTestGroup" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-22T09:10:40.412Z" hostname="RA_GIMADEYEV" time="11.799">
   <properties/>
-  <testcase name="testGroupCreate[0](GroupData{id='2147483647', name='test 0'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="16.568"/>
-  <testcase name="testGroupCreate[1](GroupData{id='2147483647', name='test 1'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="8.831"/>
-  <testcase name="testGroupCreate[2](GroupData{id='2147483647', name='test 2'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="8.904"/>
+  <testcase name="testGroupCreate[0](GroupData{id=2147483647, name='test 0', header='header 0', footer='footer 0'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="5.309"/>
+  <testcase name="testGroupCreate[1](GroupData{id=2147483647, name='test 1', header='header 1', footer='footer 1'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="3.353"/>
+  <testcase name="testGroupCreate[2](GroupData{id=2147483647, name='test 2', header='header 2', footer='footer 2'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="3.137"/>
   <system-out><![CDATA[createGroup
 createGroup
 createGroup
