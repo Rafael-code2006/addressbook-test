@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestsAddressbook.hidenElemnents.HidenElements" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-22T12:19:55.149Z" hostname="RA_GIMADEYEV" time="0.206">
+  <properties/>
+  <testcase name="testCheckboxes" classname="com.example.TestsAddressbook.hidenElemnents.HidenElements" time="0.206"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

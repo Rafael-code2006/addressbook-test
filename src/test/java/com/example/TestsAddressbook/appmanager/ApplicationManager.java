@@ -41,6 +41,7 @@ public class ApplicationManager {
 
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
+        System.out.println("System.getProperty(\"browser\"): " + System.getProperty("browser"));
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
         dbHelper = new DbHelper();
         if(Objects.equals(browser, BrowserType.CHROME)){

@@ -20,25 +20,25 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">10</div>
+<div class="counter">14</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">0</div>
+<div class="counter">4</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">9.808s</div>
+<div class="counter">5.677s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,12 +58,64 @@
 <div class="tab-container">
 <ul class="tabLinks">
 <li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Ignored tests</a>
+</li>
+<li>
 <a href="#">Packages</a>
 </li>
 <li>
 <a href="#">Classes</a>
 </li>
 </ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestContact.html">CreateTestContact</a>.
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestContact.html#test[2](ContactData{id=2147483647, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='Mobile 2', work='null', allPhones='null', group='null', file=null})">test[2](ContactData{id=2147483647, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='Mobile 2', work='null', allPhones='null', group='null', file=null})</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html">CreateTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html#testGroupCreate[0](GroupData{id=2147483647, name='test 0', header='header 0', footer='footer 0'})">testGroupCreate[0](GroupData{id=2147483647, name='test 0', header='header 0', footer='footer 0'})</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html">CreateTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html#testGroupCreate[1](GroupData{id=2147483647, name='test 1', header='header 1', footer='footer 1'})">testGroupCreate[1](GroupData{id=2147483647, name='test 1', header='header 1', footer='footer 1'})</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html">CreateTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html#testGroupCreate[2](GroupData{id=2147483647, name='test 2', header='header 2', footer='footer 2'})">testGroupCreate[2](GroupData{id=2147483647, name='test 2', header='header 2', footer='footer 2'})</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html">DeletedTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html#ensurePreconditions">ensurePreconditions</a>
+</li>
+</ul>
+</div>
+<div class="tab">
+<h2>Ignored tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html">DeletedTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html#DeletedTestGroup">DeletedTestGroup</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.ModificationTestContact.html">ModificationTestContact</a>.
+<a href="classes/com.example.TestsAddressbook.tests.ModificationTestContact.html#test">test</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.ModificationTestGroup.html">ModificationTestGroup</a>.
+<a href="classes/com.example.TestsAddressbook.tests.ModificationTestGroup.html#testGroupModification">testGroupModification</a>
+</li>
+<li>
+<a href="classes/com.example.TestsAddressbook.tests.PhoneTestContact.html">PhoneTestContact</a>.
+<a href="classes/com.example.TestsAddressbook.tests.PhoneTestContact.html#test">test</a>
+</li>
+</ul>
+</div>
 <div class="tab">
 <h2>Packages</h2>
 <table>
@@ -80,13 +132,33 @@
 <tbody>
 <tr>
 <td class="success">
+<a href="packages/com.example.TestsAddressbook.connections.html">com.example.TestsAddressbook.connections</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.015s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.example.TestsAddressbook.hidenElemnents.html">com.example.TestsAddressbook.hidenElemnents</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.206s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
 <a href="packages/com.example.TestsAddressbook.tests.html">com.example.TestsAddressbook.tests</a>
 </td>
-<td>10</td>
-<td>0</td>
-<td>0</td>
-<td>9.808s</td>
-<td class="success">100%</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>5.456s</td>
+<td class="failures">28%</td>
 </tr>
 </tbody>
 </table>
@@ -107,63 +179,93 @@
 <tbody>
 <tr>
 <td class="success">
-<a href="classes/com.example.TestsAddressbook.tests.CreateTestContact.html">com.example.TestsAddressbook.tests.CreateTestContact</a>
-</td>
-<td>3</td>
-<td>0</td>
-<td>0</td>
-<td>2.740s</td>
-<td class="success">100%</td>
-</tr>
-<tr>
-<td class="success">
-<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html">com.example.TestsAddressbook.tests.CreateTestGroup</a>
-</td>
-<td>3</td>
-<td>0</td>
-<td>0</td>
-<td>3.048s</td>
-<td class="success">100%</td>
-</tr>
-<tr>
-<td class="success">
-<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html">com.example.TestsAddressbook.tests.DeletedTestGroup</a>
+<a href="classes/com.example.TestsAddressbook.connections.DbConnectionTest.html">com.example.TestsAddressbook.connections.DbConnectionTest</a>
 </td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.389s</td>
+<td>0.008s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
+<a href="classes/com.example.TestsAddressbook.connections.HbConnectionTest.html">com.example.TestsAddressbook.connections.HbConnectionTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.007s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.example.TestsAddressbook.hidenElemnents.HidenElements.html">com.example.TestsAddressbook.hidenElemnents.HidenElements</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.206s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestContact.html">com.example.TestsAddressbook.tests.CreateTestContact</a>
+</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>2.421s</td>
+<td class="failures">66%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.example.TestsAddressbook.tests.CreateTestGroup.html">com.example.TestsAddressbook.tests.CreateTestGroup</a>
+</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>3.035s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.example.TestsAddressbook.tests.DeletedTestGroup.html">com.example.TestsAddressbook.tests.DeletedTestGroup</a>
+</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="skipped">
 <a href="classes/com.example.TestsAddressbook.tests.ModificationTestContact.html">com.example.TestsAddressbook.tests.ModificationTestContact</a>
 </td>
 <td>1</td>
 <td>0</td>
-<td>0</td>
-<td>1.442s</td>
-<td class="success">100%</td>
+<td>1</td>
+<td>0s</td>
+<td class="skipped">-</td>
 </tr>
 <tr>
-<td class="success">
+<td class="skipped">
 <a href="classes/com.example.TestsAddressbook.tests.ModificationTestGroup.html">com.example.TestsAddressbook.tests.ModificationTestGroup</a>
 </td>
 <td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0.954s</td>
-<td class="success">100%</td>
+<td>1</td>
+<td>0s</td>
+<td class="skipped">-</td>
 </tr>
 <tr>
-<td class="success">
+<td class="skipped">
 <a href="classes/com.example.TestsAddressbook.tests.PhoneTestContact.html">com.example.TestsAddressbook.tests.PhoneTestContact</a>
 </td>
 <td>1</td>
 <td>0</td>
-<td>0</td>
-<td>1.235s</td>
-<td class="success">100%</td>
+<td>1</td>
+<td>0s</td>
+<td class="skipped">-</td>
 </tr>
 </tbody>
 </table>
@@ -176,7 +278,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14</a> at 22.01.2026 14:51:07</p>
+<a href="https://www.gradle.org">Gradle 8.14</a> at 22.01.2026 17:19:56</p>
 </div>
 </div>
 </body>

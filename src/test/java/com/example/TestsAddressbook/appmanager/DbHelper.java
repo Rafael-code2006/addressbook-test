@@ -34,11 +34,6 @@ public class DbHelper {
         Transaction tx = session.beginTransaction();
 
         List<GroupData> groups = session.createQuery("from GroupData where deprecated = '0000-00-00 00:00:00'").list();
-        System.out.println("Все сработало: ");
-        System.out.println();
-        for (GroupData group : groups) {
-            System.out.println(group);
-        }
 
         tx.commit();
         session.close();
@@ -50,11 +45,7 @@ public class DbHelper {
         Transaction tx = session.beginTransaction();
 
         List<ContactData> contacts = session.createQuery("from ContactData where deprecated = null").list();
-        System.out.println("Все сработало: ");
-        System.out.println();
-        for (ContactData contact : contacts) {
-            System.out.println(contact);
-        }
+
 
         tx.commit();
         session.close();

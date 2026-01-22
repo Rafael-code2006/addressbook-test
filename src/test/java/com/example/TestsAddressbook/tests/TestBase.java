@@ -1,10 +1,13 @@
 package com.example.TestsAddressbook.tests;
 
 import com.example.TestsAddressbook.appmanager.ApplicationManager;
+import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.GroupData;
+import com.example.TestsAddressbook.model.MySet;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.hamcrest.CoreMatchers;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +22,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.google.common.base.Predicates.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TestBase {
 
@@ -79,6 +85,28 @@ public class TestBase {
     public Iterator<Object[]> validProviderFromXmlToContacts() throws IOException {
         File file = new File("D:/Java/addressbook-web-test/src/test/resources/contacts.xml");
         return ApplicationManager.xmlParserContact(file);
+    }
+
+
+    public void verifyGroupListInUI() {
+        if(Boolean.getBoolean("verifyUI")) {
+        MySet<GroupData> DBgroups = app.db().groups();
+        MySet<GroupData> UIgroups = app.group().all();
+
+        assertThat(UIgroups, CoreMatchers.equalTo(DBgroups));
+        } else {
+            System.out.println("Не сработало(");
+        }
+    }
+
+    public void verifyContactListInUI() {
+
+        if(Boolean.getBoolean("verifyUI")) {
+            MySet<ContactData> DBcontact = app.db().contacts();
+            MySet<ContactData> UIcontact = app.contact().all();
+
+            assertThat(UIcontact, CoreMatchers.equalTo(DBcontact));
+        }
     }
 
 }

@@ -1,0 +1,23 @@
+<list>
+  <contact>
+    <id>2147483647</id>
+    <firstname>FirstName 0</firstname>
+    <lastname>LastName 0</lastname>
+    <email>Email 0</email>
+    <mobile>Mobile 0</mobile>
+  </contact>
+  <contact>
+    <id>2147483647</id>
+    <firstname>FirstName 1</firstname>
+    <lastname>LastName 1</lastname>
+    <email>Email 1</email>
+    <mobile>Mobile 1</mobile>
+  </contact>
+  <contact>
+    <id>2147483647</id>
+    <firstname>FirstName 2</firstname>
+    <lastname>LastName 2</lastname>
+    <email>Email 2</email>
+    <mobile>Mobile 2</mobile>
+  </contact>
+</list>

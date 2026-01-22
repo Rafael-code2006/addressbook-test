@@ -21,7 +21,7 @@ public class ModificationTestGroup extends TestBase{
     }
 
     @Test
-    public void testGroupModification(){
+    public void testGroupModification() {
         MySet<GroupData> before = app.db().groups();
         GroupData modifyGroup = before.iterator().next();
         GroupData newGroupData = new GroupData()
@@ -33,6 +33,7 @@ public class ModificationTestGroup extends TestBase{
         assertThat(app.group().count(), equalTo(before.size()));
         MySet<GroupData> after = app.db().groups();
         assertThat(after, equalTo(before.without(modifyGroup).withAdded(newGroupData)));
+        verifyGroupListInUI();
     }
 
 }

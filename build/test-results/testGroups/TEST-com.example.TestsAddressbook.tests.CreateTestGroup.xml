@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.tests.CreateTestGroup" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-22T09:10:40.412Z" hostname="RA_GIMADEYEV" time="11.799">
+<testsuite name="com.example.TestsAddressbook.tests.CreateTestGroup" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-22T12:16:06.272Z" hostname="RA_GIMADEYEV" time="3.317">
   <properties/>
-  <testcase name="testGroupCreate[0](GroupData{id=2147483647, name='test 0', header='header 0', footer='footer 0'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="5.309"/>
-  <testcase name="testGroupCreate[1](GroupData{id=2147483647, name='test 1', header='header 1', footer='footer 1'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="3.353"/>
-  <testcase name="testGroupCreate[2](GroupData{id=2147483647, name='test 2', header='header 2', footer='footer 2'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="3.137"/>
-  <system-out><![CDATA[createGroup
+  <testcase name="testGroupCreate[0](GroupData{id=2147483647, name='test 0', header='header 0', footer='footer 0'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="1.238"/>
+  <testcase name="testGroupCreate[1](GroupData{id=2147483647, name='test 1', header='header 1', footer='footer 1'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="1.028"/>
+  <testcase name="testGroupCreate[2](GroupData{id=2147483647, name='test 2', header='header 2', footer='footer 2'})" classname="com.example.TestsAddressbook.tests.CreateTestGroup" time="1.05"/>
+  <system-out><![CDATA[РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
 createGroup
+РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
+РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
 createGroup
+РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
+РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
+createGroup
+РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
+Hibernate: 
+    select
+        groupdata0_.group_id as group_id1_1_,
+        groupdata0_.group_footer as group_fo2_1_,
+        groupdata0_.group_header as group_he3_1_,
+        groupdata0_.group_name as group_na4_1_ 
+    from
+        group_list groupdata0_ 
+    where
+        deprecated='0000-00-00 00:00:00'
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

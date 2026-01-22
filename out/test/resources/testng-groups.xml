@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AddressBookSuite">
+    <test name="Groups">
+        <classes>
+            <class name="com.example.TestsAddressbook.tests.CreateTestGroup"/>
+            <class name="com.example.TestsAddressbook.tests.ModificationTestGroup"/>
+            <class name="com.example.TestsAddressbook.tests.DeletedTestGroup"/>
+        </classes>
+    </test>
+</suite>
