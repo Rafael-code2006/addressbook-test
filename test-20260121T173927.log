@@ -1,6 +1,0 @@
-2026-01-21 17:39:29 INFO  c.e.TestsAddressbook.tests.TestBase - Start testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 0'}]
-2026-01-21 17:39:30 INFO  c.e.TestsAddressbook.tests.TestBase - Stop testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 0'}]
-2026-01-21 17:39:30 INFO  c.e.TestsAddressbook.tests.TestBase - Start testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 1'}]
-2026-01-21 17:39:31 INFO  c.e.TestsAddressbook.tests.TestBase - Stop testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 1'}]
-2026-01-21 17:39:31 INFO  c.e.TestsAddressbook.tests.TestBase - Start testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 2'}]
-2026-01-21 17:39:32 INFO  c.e.TestsAddressbook.tests.TestBase - Stop testGroupCreate method, with parameters [GroupData{id='2147483647', name='test 2'}]
