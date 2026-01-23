@@ -46,12 +46,15 @@ public class HelperBase {
     }
     protected boolean isElementPresent(By locator) {
             long currentTime = System.currentTimeMillis();
-            while(System.currentTimeMillis() < currentTime + 1000){
+            while(System.currentTimeMillis() < currentTime + 3000){
                 try {
-                    waitFindElement(locator);
+                   WebElement element =  waitFindElement(locator);
+                   if(element == null){
+                       return false;
+                   }
                     return true;
-                }catch (Exception ex) {
-                    // Do nothing
+                }catch (NullPointerException ex) {
+                    return false;
                 }
             }
             return false;

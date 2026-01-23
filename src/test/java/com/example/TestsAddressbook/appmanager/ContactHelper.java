@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class ContactHelper extends HelperBase {
@@ -164,7 +165,7 @@ public class ContactHelper extends HelperBase {
                 .withWork(work);
     }
 
-    public void addInGroup(ContactData modifyContact) {
+    public void  addInGroup(ContactData modifyContact) {
         select(modifyContact);
         if(modifyContact.getGroups() != null && !modifyContact.getGroups().isEmpty()) {
             new Select(driver.findElement(By.name("to_group")))
@@ -174,11 +175,30 @@ public class ContactHelper extends HelperBase {
     }
 
     public void DeleteInGroup(ContactData modifyContact) {
-        new Select(driver.findElement(By.name("group")))
-                .selectByVisibleText(modifyContact.getGroups().iterator().next().getName());
-        select(modifyContact);
-        click(By.xpath("//input[@name=\"remove\"]"));
-        click(By.xpath("//a[@href=\"./?group=5\"]"));
+        selectForm("group",modifyContact.getGroups().iterator().next().getName());
 
+        if(!isElementPresent(By.xpath("//td[@class=\"center\"]"))) {
+               selectForm("group","[all]");
+                addInGroup(modifyContact);
+                returnToHome();
+            }
+
+         if(waitFindElements(By.name("selected[]")).size() > 1){
+             selectForm("group",modifyContact.getGroups().iterator().next().getName());
+             select(modifyContact);
+         } else {
+             selectForm("group",modifyContact.getGroups().iterator().next().getName());
+             click(By.name("selected[]"));
+         }
+            click(By.xpath("//input[@name=\"remove\"]"));
+            click(By.xpath("//*[@id=\"content\"]/div/i/a"));
+
+
+
+    }
+
+    private void selectForm(String locator, String select) {
+        new Select(driver.findElement(By.name(locator)))
+                .selectByVisibleText(select);
     }
 }

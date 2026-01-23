@@ -26,13 +26,16 @@ public class GroupHelper extends HelperBase{
     } // Возврат к списку групп
 
     public void createGroup(GroupData groupData){
-        newGroupPage();
         newGroup(groupData);
         submitGroupCreation();
         groupsCache = null;
         returnToGroupsPage();
         System.out.println("createGroup");
     } // Путь создания группу
+
+    private void goToNewGroup() {
+        click(By.xpath("//input[@value=\"New group\"]"));
+    }
 
     public void modify(GroupData newGroup) {
         selectGroupById(newGroup.getId());
@@ -50,7 +53,8 @@ public class GroupHelper extends HelperBase{
     } // Создание группы
 
     public void checkingGroup(GroupData groupData) {
-        if(!isElementPresent(By.className("group"))){
+        if(!isElementPresent(By.xpath("//*[@name=\"selected[]\"]"))){
+            goToNewGroup();
             createGroup(groupData);
         }
     } // Проверка наличия групп
