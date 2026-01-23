@@ -4,9 +4,18 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import com.example.TestsAddressbook.model.ContactData;
+import com.example.TestsAddressbook.model.GroupData;
+import com.example.TestsAddressbook.model.MySet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
+import org.eclipse.jetty.websocket.common.events.AbstractEventDriver;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,6 +30,7 @@ public class ContactDataGenerator {
 
     @Parameter(names = "-d", description = "Data format")
     public String format;
+    private SessionFactory sessionFactory;
 
 
     public static void main(String[] args) throws IOException {
@@ -81,20 +91,53 @@ public class ContactDataGenerator {
 
         try(Writer writer = new FileWriter(file)) {
             for (ContactData x : contact) {
-                writer.write(String.format("%s;%s;%s;%s%n", x.getFirstname(), x.getLastname(), x.getEmail(), x.getMobile()));
+                writer.write(String.format("%s;%s;%s;%s;%s%n", x.getFirstname(), x.getLastname(), x.getEmail(), x.getMobile(), x.getGroups().iterator().next().getName()));
             }
         }
     }
 
     private List<ContactData> generateContacts(int count) {
+        DbHelper();
         List<ContactData> contacts = new ArrayList<>();
         for(int i=0; i< count; i++){
             contacts.add(new ContactData()
                     .withFirstName(String.format("FirstName %s", i))
                     .withLastname(String.format("LastName %s", i))
                     .withEmail(String.format("Email %s", i))
-                    .withMobile(String.format("Mobile %s", i)));
+                    .withMobile(String.format("Mobile %s", i))
+                    .inGroup(groupsList().iterator().next()));
         }
+        tearDown();
         return contacts;
+    }
+
+    protected void tearDown() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
+
+    public void DbHelper() {
+        final StandardServiceRegistry registry =
+                new StandardServiceRegistryBuilder()
+                        .configure() // читает hibernate.cfg.xml
+                        .build();
+        sessionFactory =  new MetadataSources(registry)
+                .addAnnotatedClass(GroupData.class)
+                .buildMetadata()
+                .buildSessionFactory();
+    }
+
+    private MySet<GroupData> groupsList() {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        System.out.println("Все сработало: ");
+        List<GroupData> groups = session.createQuery("from GroupData").list();
+
+        System.out.println();
+        tx.commit();
+        session.close();
+
+        return new MySet<>(groups);
     }
 }

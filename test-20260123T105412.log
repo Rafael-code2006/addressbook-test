@@ -1,0 +1,15 @@
+2026-01-23 10:54:12 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2026-01-23 10:54:23 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2026-01-23 10:54:23 WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-01-23 10:54:23 INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/addressbook?useSSL=false&serverTimezone=UTC]
+2026-01-23 10:54:23 INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2026-01-23 10:54:23 INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-01-23 10:54:23 INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 1 (min=1)
+2026-01-23 10:54:24 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2026-01-23 10:54:25 INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2c7a8af2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-01-23 10:54:46 INFO  c.e.TestsAddressbook.tests.TestBase - Start test method, with parameters [ContactData{id=2147483647, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='Mobile 0', work='null', allPhones='null', group='[]', file=null}]
+2026-01-23 10:55:36 INFO  c.e.TestsAddressbook.tests.TestBase - Stop test method, with parameters [ContactData{id=11, firstname='FirstName 0', lastname='LastName 0', email='Email 0', home='null', mobile='Mobile 0', work='null', allPhones='null', group='[]', file=null}]
+2026-01-23 10:55:37 INFO  c.e.TestsAddressbook.tests.TestBase - Start test method, with parameters [ContactData{id=2147483647, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='Mobile 1', work='null', allPhones='null', group='[]', file=null}]
+2026-01-23 10:55:39 INFO  c.e.TestsAddressbook.tests.TestBase - Stop test method, with parameters [ContactData{id=12, firstname='FirstName 1', lastname='LastName 1', email='Email 1', home='null', mobile='Mobile 1', work='null', allPhones='null', group='[]', file=null}]
+2026-01-23 10:55:39 INFO  c.e.TestsAddressbook.tests.TestBase - Start test method, with parameters [ContactData{id=2147483647, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='Mobile 2', work='null', allPhones='null', group='[]', file=null}]
+2026-01-23 10:55:40 INFO  c.e.TestsAddressbook.tests.TestBase - Stop test method, with parameters [ContactData{id=13, firstname='FirstName 2', lastname='LastName 2', email='Email 2', home='null', mobile='Mobile 2', work='null', allPhones='null', group='[]', file=null}]

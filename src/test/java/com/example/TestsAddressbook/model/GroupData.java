@@ -2,11 +2,10 @@ package com.example.TestsAddressbook.model;
 
 import com.google.gson.annotations.Expose;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -26,6 +25,14 @@ public class GroupData {
     @Column(name = "group_footer")
     private String footer = null;
 
+
+    @ManyToMany(mappedBy = "groups")
+    private Set<ContactData> contacts = new HashSet<ContactData>();
+
+    public MySet<ContactData> getContacts() {
+        MySet<ContactData> MyContacts = new MySet<>(contacts);
+        return MyContacts;
+    }
 
     public int getId() {
         return id;

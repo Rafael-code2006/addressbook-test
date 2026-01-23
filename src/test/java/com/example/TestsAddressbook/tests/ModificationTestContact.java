@@ -14,8 +14,7 @@ public class ModificationTestContact extends TestBase {
     private ContactData contactData = new ContactData()
             .withFirstName("Artem")
             .withLastname("Alekseev")
-            .withEmail("art@mail.ru")
-            .withGroup("Test2");
+            .withEmail("art@mail.ru");
 
     @BeforeMethod
     public void ensurePreconditions() {
@@ -34,8 +33,7 @@ public class ModificationTestContact extends TestBase {
                 .withId(modified.getId())
                 .withFirstName("Rafael")
                 .withLastname("Alekseev")
-                .withEmail("art@mail.ru")
-                .withGroup("Test2");
+                .withEmail("art@mail.ru");
 
         app.contact().modify(before, modifyContact);
 

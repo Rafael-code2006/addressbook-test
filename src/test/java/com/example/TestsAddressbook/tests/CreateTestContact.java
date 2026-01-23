@@ -1,5 +1,6 @@
 package com.example.TestsAddressbook.tests;
 import com.example.TestsAddressbook.model.ContactData;
+import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,10 @@ public class CreateTestContact extends TestBase {
 
     @Test(dataProvider = "validProviderFromJsonToContact", dataProviderClass = TestBase.class)
     public void test(ContactData contactData){
+        MySet<GroupData> groups = app.db().groups();
         MySet<ContactData> before = app.db().contacts();
+        ContactData newContact = new ContactData().withFirstName("Pavel").withLastname("Antonov")
+                        .inGroup(groups.iterator().next());
         app.contact().create(contactData);
         MySet<ContactData> after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size()+1));

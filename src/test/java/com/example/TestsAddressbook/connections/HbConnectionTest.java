@@ -1,5 +1,6 @@
 package com.example.TestsAddressbook.connections;
 
+import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.GroupData;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,13 +48,13 @@ public class HbConnectionTest {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
 
-        List<GroupData> groups = session.createQuery("from GroupData where deprecated = '0000-00-00 00:00:00'").list();
+        List<ContactData> groups = session.createQuery("from ContactData where deprecated = null").list();
         System.out.println("Все сработало: ");
         System.out.println();
-        for (GroupData group : groups) {
+        for (ContactData group : groups) {
             System.out.println(group);
+            System.out.println(group.getGroups());
         }
-
         tx.commit();
         session.close();
 

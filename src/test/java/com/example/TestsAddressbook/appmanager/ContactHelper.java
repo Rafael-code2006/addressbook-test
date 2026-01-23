@@ -61,17 +61,21 @@ public class ContactHelper extends HelperBase {
         }
 
         if (creation) {
-            try {
+            if (contactData.getGroups() != null) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
                 new Select(driver.findElement(By.name("new_group")))
-                        .selectByVisibleText(contactData.getGroup());
+                        .selectByVisibleText(contactData.getGroups().iterator().next().getName());
                 save();
-            } catch (Exception ex) {
+            }
+            else{
                 save();
             }
         } else {
-            Assert.assertTrue(isElementPresent(By.name("new_group")));
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+            save();
         }
     }
+
 
     private void save() {
         click(By.xpath("//*[@value='Enter']"));

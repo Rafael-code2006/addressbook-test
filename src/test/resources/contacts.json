@@ -3,18 +3,52 @@
     "firstname": "FirstName 0",
     "lastname": "LastName 0",
     "email": "Email 0",
-    "mobile": "Mobile 0"
+    "mobile": "Mobile 0",
+    "groups": [
+      {
+        "name": "Test1",
+        "header": "testGroup",
+        "footer": "TestFooter"
+      }
+    ]
   },
   {
     "firstname": "FirstName 1",
     "lastname": "LastName 1",
     "email": "Email 1",
-    "mobile": "Mobile 1"
+    "mobile": "Mobile 1",
+    "groups": [
+      {
+        "name": "Test1",
+        "header": "testGroup",
+        "footer": "TestFooter"
+      }
+    ]
   },
   {
     "firstname": "FirstName 2",
     "lastname": "LastName 2",
     "email": "Email 2",
-    "mobile": "Mobile 2"
+    "mobile": "Mobile 2",
+    "groups": [
+      {
+        "name": "Test1",
+        "header": "testGroup",
+        "footer": "TestFooter"
+      }
+    ]
+  },
+  {
+    "firstname": "FirstName 3",
+    "lastname": "LastName 3",
+    "email": "Email 3",
+    "mobile": "Mobile 3",
+    "groups": [
+      {
+        "name": "Test1",
+        "header": "testGroup",
+        "footer": "TestFooter"
+      }
+    ]
   }
 ]
