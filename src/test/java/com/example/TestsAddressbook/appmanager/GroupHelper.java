@@ -26,6 +26,7 @@ public class GroupHelper extends HelperBase{
     } // Возврат к списку групп
 
     public void createGroup(GroupData groupData){
+        goToNewGroup();
         newGroup(groupData);
         submitGroupCreation();
         groupsCache = null;

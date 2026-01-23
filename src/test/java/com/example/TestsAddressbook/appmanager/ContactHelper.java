@@ -74,7 +74,7 @@ public class ContactHelper extends HelperBase {
                 save();
             }
         } else {
-            Assert.assertFalse(!isElementPresent(By.name("new_group")));
+            Assert.assertFalse(isElementPresent(By.xpath("//*[@name=\"new_group\"]")));
             updateContact();
         }
     }

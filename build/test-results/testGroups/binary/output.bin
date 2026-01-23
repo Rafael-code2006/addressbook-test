@@ -1,124 +1,0 @@
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-createGroup
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-createGroup
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-createGroup
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-1РќРµ СЃСЂР°Р±РѕС‚Р°Р»Рѕ(
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
-:РќР°С‡Р°Р» СЂР°Р±РѕС‚Р°С‚СЊ
-Hibernate: 
-    select
-/        groupdata0_.group_id as group_id1_1_,
-3        groupdata0_.group_footer as group_fo2_1_,
-3        groupdata0_.group_header as group_he3_1_,
-1        groupdata0_.group_name as group_na4_1_ 
-
-    from
-!        group_list groupdata0_ 
-    where
-*        deprecated='0000-00-00 00:00:00'
