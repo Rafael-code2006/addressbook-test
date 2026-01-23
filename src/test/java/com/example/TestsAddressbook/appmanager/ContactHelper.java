@@ -46,6 +46,8 @@ public class ContactHelper extends HelperBase {
         returnToHomePages();
     }
 
+
+
     public void returnToHome(){
         click(By.xpath("//a[text()='home']"));
     }

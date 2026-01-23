@@ -19,10 +19,12 @@ public class AddTestContactInGroup extends TestBase {
 
     @Test
     public void test(){
+        checkingGroup();
+        MySet<GroupData> groups = app.db().groups();
+        checkingContact(groups);
         MySet<ContactData> before = app.db().contacts();
         ContactData select = before.iterator().next();
 
-        MySet<GroupData> groups = app.db().groups();
 
         ContactData modifyContact = new ContactData()
                 .withId(select.getId())
@@ -32,6 +34,21 @@ public class AddTestContactInGroup extends TestBase {
                 .inGroup(groups.iterator().next());
 
         app.contact().addInGroup(modifyContact);
+    }
+
+    private void checkingContact(MySet<GroupData> groups) {
+        if(!app.isElementPresent(By.name("selected[]"))){
+            app.contact().create(new ContactData().withFirstName("Rafael").withLastname("Gimadeyev").withMobile("111").inGroup(groups.iterator().next()));
+        }
+    }
+
+    private static void checkingGroup() {
+        if(!app.isElementPresent(By.xpath("//select[@name=\"group\"]/option[3]"))) {
+            app.goTo().groupPage();
+            GroupData group = new GroupData().withName("Test1").withHeader("Header1").withFooter("Footer1");
+            app.group().checkingGroup(group);
+            app.contact().returnToHome();
+        }
     }
 
 }

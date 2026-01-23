@@ -21,17 +21,11 @@ public class DeleteTestContactInGroup extends TestBase {
 
     @Test
     public void test(){
-        if(!app.isElementPresent(By.xpath("//select[@name=\"group\"]/option[3]"))) {
-            app.goTo().groupPage();
-            GroupData group = new GroupData().withName("Test1").withHeader("Header1").withFooter("Footer1");
-            app.group().checkingGroup(group);
-            app.contact().returnToHome();
-        }
+        checkingGroup();
         MySet<ContactData> before = app.db().contacts();
         ContactData select = before.iterator().next();
 
         MySet<GroupData> groups = app.db().groups();
-
 
             ContactData modifyContact = new ContactData()
                     .withId(select.getId())
@@ -42,4 +36,13 @@ public class DeleteTestContactInGroup extends TestBase {
 
             app.contact().DeleteInGroup(modifyContact);
 }
+
+    private static void checkingGroup() {
+        if(!app.isElementPresent(By.xpath("//select[@name=\"group\"]/option[3]"))) {
+            app.goTo().groupPage();
+            GroupData group = new GroupData().withName("Test1").withHeader("Header1").withFooter("Footer1");
+            app.group().checkingGroup(group);
+            app.contact().returnToHome();
+        }
+    }
 }
