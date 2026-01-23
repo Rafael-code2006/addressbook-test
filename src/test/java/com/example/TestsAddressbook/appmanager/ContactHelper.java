@@ -71,8 +71,8 @@ public class ContactHelper extends HelperBase {
                 save();
             }
         } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
-            save();
+            Assert.assertFalse(!isElementPresent(By.name("new_group")));
+            updateContact();
         }
     }
 
@@ -88,7 +88,6 @@ public class ContactHelper extends HelperBase {
         ContactData contact = before.iterator().next();
         goToEdit(contact);
         fillForm(modifyContact, false);
-        updateContact();
         contactCache = null;
         returnToHomePages();
     }
@@ -163,5 +162,23 @@ public class ContactHelper extends HelperBase {
                 .withHome(home)
                 .withMobile(mobile)
                 .withWork(work);
+    }
+
+    public void addInGroup(ContactData modifyContact) {
+        select(modifyContact);
+        if(modifyContact.getGroups() != null && !modifyContact.getGroups().isEmpty()) {
+            new Select(driver.findElement(By.name("to_group")))
+                    .selectByVisibleText(modifyContact.getGroups().iterator().next().getName());
+            click(By.xpath("//input[@value=\"Add to\"]"));
+        }
+    }
+
+    public void DeleteInGroup(ContactData modifyContact) {
+        new Select(driver.findElement(By.name("group")))
+                .selectByVisibleText(modifyContact.getGroups().iterator().next().getName());
+        select(modifyContact);
+        click(By.xpath("//input[@name=\"remove\"]"));
+        click(By.xpath("//a[@href=\"./?group=5\"]"));
+
     }
 }

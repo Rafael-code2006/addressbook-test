@@ -11,17 +11,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ModificationTestContact extends TestBase {
 
-    private ContactData contactData = new ContactData()
-            .withFirstName("Artem")
-            .withLastname("Alekseev")
-            .withEmail("art@mail.ru");
 
     @BeforeMethod
     public void ensurePreconditions() {
         if(!app.isElementPresent(By.xpath("//a[text()=\"Last name\"]"))){
             app.contact().returnToHome();
         }
-        app.contact().checking(contactData);
     }
 
     @Test
