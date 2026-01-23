@@ -63,6 +63,7 @@ public class ContactHelper extends HelperBase {
             type("email", contactData.getEmail());
         }
 
+
         if (creation) {
             if (contactData.getGroups() != null) {
                 Assert.assertTrue(contactData.getGroups().size() == 1);

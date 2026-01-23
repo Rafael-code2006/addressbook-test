@@ -3,11 +3,15 @@ package com.example.TestsAddressbook.tests;
 import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.function.Consumer;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class DeleteTestContactInGroup extends TestBase {
 
@@ -22,7 +26,7 @@ public class DeleteTestContactInGroup extends TestBase {
     @Test
     public void test(){
         checkingGroup();
-        MySet<ContactData> before = app.db().contacts();
+        MySet<ContactData> before = app.db().contactsInGroups();
         ContactData select = before.iterator().next();
 
         MySet<GroupData> groups = app.db().groups();
@@ -35,6 +39,8 @@ public class DeleteTestContactInGroup extends TestBase {
                     .inGroup(groups.iterator().next());
 
             app.contact().DeleteInGroup(modifyContact);
+            MySet<ContactData> after = app.db().contactsInGroups();
+            assertThat(after.size(), CoreMatchers.equalTo(before.size()));
 }
 
     private static void checkingGroup() {

@@ -77,7 +77,7 @@ public class HelperBase {
                 if(!elements.isEmpty()) return elements;
             }
         }
-        return null;
+        return new ArrayList<>();
     }
 
     public WebElement waitFindElement(By locator) {

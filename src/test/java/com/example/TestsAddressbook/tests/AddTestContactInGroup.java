@@ -3,9 +3,14 @@ package com.example.TestsAddressbook.tests;
 import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
+import org.hamcrest.CoreMatchers;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.function.DoubleToIntFunction;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddTestContactInGroup extends TestBase {
 
@@ -22,8 +27,9 @@ public class AddTestContactInGroup extends TestBase {
         checkingGroup();
         MySet<GroupData> groups = app.db().groups();
         checkingContact(groups);
-        MySet<ContactData> before = app.db().contacts();
+        MySet<ContactData> before = app.db().contactsInGroups();
         ContactData select = before.iterator().next();
+
 
 
         ContactData modifyContact = new ContactData()
@@ -34,6 +40,9 @@ public class AddTestContactInGroup extends TestBase {
                 .inGroup(groups.iterator().next());
 
         app.contact().addInGroup(modifyContact);
+
+        MySet<ContactData> after = app.db().contactsInGroups();
+        assertThat(after.size(), CoreMatchers.equalTo(before.size()));
     }
 
     private void checkingContact(MySet<GroupData> groups) {

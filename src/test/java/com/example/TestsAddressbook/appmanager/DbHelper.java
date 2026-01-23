@@ -51,4 +51,19 @@ public class DbHelper {
         session.close();
         return new MySet<>(contacts);
     }
+
+
+    public MySet<ContactData> contactsInGroups() {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+
+        List<ContactData> contacts = session.createQuery(
+                "select distinct c from ContactData c join c.groups g", ContactData.class
+        ).list();
+
+        tx.commit();
+        session.close();
+        return new MySet<>(contacts);
+    }
+
 }
