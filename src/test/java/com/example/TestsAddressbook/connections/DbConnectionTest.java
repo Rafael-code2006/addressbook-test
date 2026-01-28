@@ -2,14 +2,15 @@ package com.example.TestsAddressbook.connections;
 
 import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.sql.*;
 
 public class DbConnectionTest {
-    private static final String path = "jdbc:mysql://localhost:3306/addressbook?user=root&password=";
+    private static final String url = "jdbc:mysql://localhost:3306/addressbook?user=root&password=";
 
-    @Test
+   /* @Test
     public void testDbConnection() throws SQLException {
         Connection conn = null;
         try {
@@ -39,5 +40,33 @@ public class DbConnectionTest {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    */
+
+    @Test
+    public void testDb() throws SQLException {
+        ResultSet result = selectAll("group_list");
+        while(result.next()){
+            System.out.println(result.getString("group_id"));
+            System.out.println(result.getString("group_name"));
+
+        }
+    }
+
+    private static ResultSet selectAll(String columnName) throws SQLException {
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(url);
+            String sql = String.format("SELECT * FROM %s", columnName);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            return statement.executeQuery();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        Assert.assertNotNull(connection);
+        connection.close();
+        return null;
     }
 }

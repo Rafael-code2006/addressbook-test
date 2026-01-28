@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public class HbConnectionTest {
@@ -46,18 +47,21 @@ public class HbConnectionTest {
     @Test
     public void testHbConnection() {
         Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
+        session.beginTransaction();
 
-        List<ContactData> groups = session.createQuery("from ContactData where deprecated = null").list();
-        System.out.println("Все сработало: ");
-        System.out.println();
-        for (ContactData group : groups) {
-            System.out.println(group);
-            System.out.println(group.getGroups());
-        }
-        tx.commit();
+        // создаём видео
+        Video video = new Video("Formula 1", 1);
+
+        // создаём превью и связываем обе стороны
+        Preview preview = new Preview("http://form.kz/image");
+        preview.setVideo(video);
+        video.setPreview(preview);
+
+        // сохраняем только video — Hibernate сам сохранит preview
+        session.save(video);
+
+        session.getTransaction().commit();
         session.close();
-
-
     }
+
 }

@@ -64,6 +64,7 @@ public class ApplicationManager {
 
     public void stop() {
         if(driver != null){
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
            driver.quit();
         }
     }
