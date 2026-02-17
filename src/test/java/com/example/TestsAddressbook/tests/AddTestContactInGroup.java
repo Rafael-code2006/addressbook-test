@@ -20,7 +20,7 @@ public class AddTestContactInGroup extends TestBase {
     }
 
 
-    @Test
+    @Test(alwaysRun = false)
     public void test(){
         checkingGroup();
         MySet<GroupData> groups = app.db().groups();
