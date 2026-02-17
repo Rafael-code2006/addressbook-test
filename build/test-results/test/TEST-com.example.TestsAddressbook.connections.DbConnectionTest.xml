@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.TestsAddressbook.connections.DbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-16T10:47:43.005Z" hostname="RA_GIMADEYEV" time="0.005">
+  <properties/>
+  <testcase name="testDb" classname="com.example.TestsAddressbook.connections.DbConnectionTest" time="0.005"/>
+  <system-out><![CDATA[26
+Test1
+27
+test 0
+28
+test 1
+29
+test 2
+31
+Test1
+34
+Test1
+35
+test 2
+38
+Test1
+39
+test 0
+40
+test 1
+41
+test 2
+42
+test 0
+43
+test 1
+44
+test 2
+46
+Test1
+47
+test 2
+48
+test 0
+49
+test 1
+50
+test 2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

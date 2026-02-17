@@ -1,6 +1,5 @@
 package com.example.TestsAddressbook.connections;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -42,7 +41,6 @@ public class Video {
         this.preview = preview;
     }
 
-    @Ignore
     public Video( String name, int author_id) {
         this.name = name;
         this.author_id = author_id;

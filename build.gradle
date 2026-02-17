@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.github.bonigarcia:webdrivermanager:5.5.1'
     implementation "org.hibernate:hibernate-core:5.6.15.Final"
     implementation "com.mysql:mysql-connector-j:8.0.31"
     implementation "ch.qos.logback:logback-classic:1.1.5"

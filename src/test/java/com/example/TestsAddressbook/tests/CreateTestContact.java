@@ -21,10 +21,12 @@ public class CreateTestContact extends TestBase {
 
     @Test(dataProvider = "validProviderFromJsonToContact", dataProviderClass = TestBase.class)
     public void test(ContactData contactData){
+        app.goTo().groupPage();
         MySet<GroupData> groups = app.db().groups();
         MySet<ContactData> before = app.db().contacts();
         ContactData newContact = new ContactData().withFirstName("Pavel").withLastname("Antonov")
                         .inGroup(groups.iterator().next());
+        app.contact().returnToHome();
         app.contact().create(contactData);
         MySet<ContactData> after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size()+1));

@@ -4,26 +4,18 @@ import com.example.TestsAddressbook.appmanager.ApplicationManager;
 import com.example.TestsAddressbook.model.ContactData;
 import com.example.TestsAddressbook.model.GroupData;
 import com.example.TestsAddressbook.model.MySet;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.thoughtworks.xstream.XStream;
 import org.hamcrest.CoreMatchers;
-import org.openqa.selenium.remote.BrowserType;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
 
-import static com.google.common.base.Predicates.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class TestBase {
@@ -33,7 +25,7 @@ public class TestBase {
 
     static {
         try {
-            app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+            app = new ApplicationManager(System.getProperty("browser", "chrome"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -8,8 +8,6 @@ import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.function.DoubleToIntFunction;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddTestContactInGroup extends TestBase {

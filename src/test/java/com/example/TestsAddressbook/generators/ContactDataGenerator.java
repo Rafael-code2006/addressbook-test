@@ -9,7 +9,6 @@ import com.example.TestsAddressbook.model.MySet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
-import org.eclipse.jetty.websocket.common.events.AbstractEventDriver;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

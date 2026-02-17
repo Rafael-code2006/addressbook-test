@@ -16,8 +16,12 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
 
-        <mapping class="com.example.TestsAddressbook.model.ContactData"/>
+       <mapping class="com.example.TestsAddressbook.model.ContactData"/>
         <mapping class="com.example.TestsAddressbook.model.GroupData"/>
+        <mapping class="com.example.TestsAddressbook.connections.Video"/>
+        <mapping class="com.example.TestsAddressbook.connections.Preview"/>
+        <mapping class="com.example.TestsAddressbook.connections.Comment"/>
+        <mapping class="com.example.TestsAddressbook.connections.User"/>
 
     </session-factory>
 </hibernate-configuration>

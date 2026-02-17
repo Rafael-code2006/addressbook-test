@@ -1,6 +1,6 @@
 package com.example.TestsAddressbook.connections;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
+
 
 import javax.persistence.*;
 
@@ -25,7 +25,7 @@ public class Preview {
         this.video = video;
     }
 
-    @Ignore
+
     public Preview( String image_url) {
         this.image_url = image_url;
     }

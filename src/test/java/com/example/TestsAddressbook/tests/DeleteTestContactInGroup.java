@@ -37,7 +37,7 @@ public class DeleteTestContactInGroup extends TestBase {
 
             app.contact().DeleteInGroup(modifyContact);
             MySet<ContactData> after = app.db().contactsInGroups();
-            assertThat(after.size(), CoreMatchers.equalTo(before.size()));
+            assertThat(after.size(), CoreMatchers.equalTo(before.size()-1));
 }
 
     private static void checkingGroup() {

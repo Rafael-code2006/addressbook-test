@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class HidenElements extends HideElementsHelper {
 
-    @Test
+    @Test(alwaysRun = false)
     public void testCheckboxes() {
         List<WebElement> elements = driver.findElements(By.xpath("//td"));
 

@@ -5,13 +5,14 @@ import com.example.TestsAddressbook.model.GroupData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.BrowserType;
 
 import java.io.*;
 import java.util.Iterator;
@@ -44,14 +45,32 @@ public class ApplicationManager {
         System.out.println("System.getProperty(\"browser\"): " + System.getProperty("browser"));
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
         dbHelper = new DbHelper();
-        if(Objects.equals(browser, BrowserType.CHROME)){
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\ra_gimadeyev\\chromedriver.exe");
+
+
+       /* if(Objects.equals(browser, BrowserType.CHROME)){
+            System.setProperty("webdriver.chrome.driver", "D:/Java/chromedriver.exe");
             driver = new ChromeDriver();
-        } else if(Objects.equals(browser, BrowserType.FIREFOX)){
-            System.setProperty("webdriver.gecko.driver", "C:\\Users\\ra_gimadeyev\\geckodriver.exe");
+       }
+        */
+        if (Objects.equals(browser, "chrome")) {
+
+            System.setProperty("webdriver.chrome.driver", "D:\\Java\\chromedriver.exe");
+            driver = new ChromeDriver();
+            /*  WebDriverManager.chromedriver().setup();
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+
+            driver = new ChromeDriver(options);
+
+             */
+        } else if(Objects.equals(browser, "edge")){
+            System.setProperty("webdriver.gecko.driver", "C:/Users/ra_gimadeyev/geckodriver.exe");
             driver = new FirefoxDriver();
         } else {
-            System.setProperty("webdriver.edge.driver", "C:\\Users\\ra_gimadeyev\\msedgedriver.exe");
+            System.setProperty("webdriver.edge.driver", "C:/Users/ra_gimadeyev/msedgedriver.exe");
              driver = new EdgeDriver();
         }
         groupHelper = new GroupHelper(driver);

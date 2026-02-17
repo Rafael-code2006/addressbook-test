@@ -14,6 +14,7 @@ public class MySet<T> extends ForwardingSet<T> {
     public MySet(Set<T> delegate) {
         this.delegate = new HashSet<T>(delegate);
     }
+
     public MySet(List<T> delegate) {
         this.delegate = new HashSet<T>(delegate);
     }

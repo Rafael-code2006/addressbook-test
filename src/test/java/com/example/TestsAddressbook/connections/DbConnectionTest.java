@@ -44,7 +44,7 @@ public class DbConnectionTest {
 
     */
 
-    @Test
+    @Test(alwaysRun = false)
     public void testDb() throws SQLException {
         ResultSet result = selectAll("group_list");
         while(result.next()){
