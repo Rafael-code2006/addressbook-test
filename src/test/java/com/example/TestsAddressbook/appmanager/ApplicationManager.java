@@ -5,7 +5,6 @@ import com.example.TestsAddressbook.model.GroupData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class ApplicationManager {
@@ -45,13 +43,6 @@ public class ApplicationManager {
         System.out.println("System.getProperty(\"browser\"): " + System.getProperty("browser"));
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
         dbHelper = new DbHelper();
-
-
-       /* if(Objects.equals(browser, BrowserType.CHROME)){
-            System.setProperty("webdriver.chrome.driver", "D:/Java/chromedriver.exe");
-            driver = new ChromeDriver();
-       }
-        */
         if (Objects.equals(browser, "chrome")) {
 
             ChromeOptions options = new ChromeOptions();
@@ -60,16 +51,6 @@ public class ApplicationManager {
             options.addArguments("--window-size=1920,1080");
             System.setProperty("webdriver.chrome.driver", "D:\\Java\\chromedriver.exe");
             driver = new ChromeDriver(options);
-            /*  WebDriverManager.chromedriver().setup();
-
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-
-            driver = new ChromeDriver(options);
-
-             */
         } else if(Objects.equals(browser, "edge")){
             System.setProperty("webdriver.gecko.driver", "C:/Users/ra_gimadeyev/geckodriver.exe");
             driver = new FirefoxDriver();
@@ -86,10 +67,14 @@ public class ApplicationManager {
     }
 
     public void stop() {
-        if(driver != null){
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-           driver.quit();
+            if (driver != null) {
+                try {
+                    driver.quit();
+                } catch (Exception e) {
+                    System.out.println("Browser could not be closed: " + e.getMessage());
+                }
         }
+
     }
 
     public boolean isElementPresent(By by) {
