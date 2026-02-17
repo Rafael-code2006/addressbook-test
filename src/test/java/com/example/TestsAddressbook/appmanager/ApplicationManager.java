@@ -54,8 +54,12 @@ public class ApplicationManager {
         */
         if (Objects.equals(browser, "chrome")) {
 
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless"); // для Jenkins
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
             System.setProperty("webdriver.chrome.driver", "D:\\Java\\chromedriver.exe");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
             /*  WebDriverManager.chromedriver().setup();
 
             ChromeOptions options = new ChromeOptions();

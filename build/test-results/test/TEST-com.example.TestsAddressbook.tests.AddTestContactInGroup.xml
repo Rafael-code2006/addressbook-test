@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.tests.AddTestContactInGroup" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-16T10:47:33.329Z" hostname="RA_GIMADEYEV" time="0.23">
+<testsuite name="com.example.TestsAddressbook.tests.AddTestContactInGroup" tests="2" skipped="0" failures="1" errors="0" timestamp="2026-02-17T06:43:41.837Z" hostname="RA_GIMADEYEV" time="26.522">
   <properties/>
-  <testcase name="test" classname="com.example.TestsAddressbook.tests.AddTestContactInGroup" time="0.23"/>
+  <testcase name="test" classname="com.example.TestsAddressbook.tests.AddTestContactInGroup" time="0.28"/>
+  <testcase name="tearDown" classname="com.example.TestsAddressbook.tests.AddTestContactInGroup" time="0.0">
+    <failure message="org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.&#10;Build info: version: '2.52.0', revision: '4c2593cfc3689a7fcd7be52549167e5ccc93ad28', time: '2016-02-11 11:22:43'&#10;System info: host: 'ra_gimadeyev', ip: '192.168.56.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'&#10;Driver info: driver.version: RemoteWebDriver&#10;Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:55319}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=145.0.7632.76 (ee36f024f43a5615aa1aea2186a06e5cabc45bb7-refs/branch-heads/7632_45@{#15}), userDataDir=C:\Users\RA_GIM~1\AppData\Local\Temp\scoped_dir20088_744988702}, takesHeapSnapshot=true, goog:processID=22632, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=145.0.7632.76, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]&#10;Session ID: dcf77796b9a80c372d08df0c0b5c3da9" type="org.openqa.selenium.remote.UnreachableBrowserException">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '2.52.0', revision: '4c2593cfc3689a7fcd7be52549167e5ccc93ad28', time: '2016-02-11 11:22:43'
+System info: host: 'ra_gimadeyev', ip: '192.168.56.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
+Driver info: driver.version: RemoteWebDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:55319}, webauthn:extension:credBlob=true, acceptInsecureCerts=false, fedcm:accounts=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, webauthn:extension:largeBlob=true, unexpectedAlertBehaviour=ignore, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=145.0.7632.76 (ee36f024f43a5615aa1aea2186a06e5cabc45bb7-refs/branch-heads/7632_45@{#15}), userDataDir=C:\Users\RA_GIM~1\AppData\Local\Temp\scoped_dir20088_744988702}, takesHeapSnapshot=true, goog:processID=22632, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=145.0.7632.76, browserConnectionEnabled=false, proxy={}, nativeEvents=true, webauthn:extension:minPinLength=true, webauthn:extension:prf=true, locationContextEnabled=true, cssSelectorsEnabled=true, webauthn:virtualAuthenticators=true}]
+Session ID: dcf77796b9a80c372d08df0c0b5c3da9
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:701)
+	at app//org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:526)
+	at app//com.example.TestsAddressbook.appmanager.ApplicationManager.stop(ApplicationManager.java:91)
+	at app//com.example.TestsAddressbook.tests.TestBase.tearDown(TestBase.java:41)
+	at java.base@25.0.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@25.0.1/java.lang.reflect.Method.invoke(Method.java:565)
+	at app//org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at app//org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at app//org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at app//org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at app//org.testng.SuiteRunner.privateRun(SuiteRunner.java:336)
+	at app//org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at app//org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at app//org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at app//org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at app//org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at app//org.testng.TestNG.run(TestNG.java:1064)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestRunner.runTests(TestNGTestRunner.java:131)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:103)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:64)
+	at java.base@25.0.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base@25.0.1/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:194)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: java.lang.RuntimeException: Process refused to die after 10 seconds, and couldn't taskkill it: Unable to make field private final long java.lang.ProcessImpl.handle accessible: module java.base does not &quot;opens java.lang&quot; to unnamed module @bccb269
+	at org.openqa.selenium.os.ProcessUtils.killWinProcess(ProcessUtils.java:143)
+	at org.openqa.selenium.os.ProcessUtils.killProcess(ProcessUtils.java:81)
+	at org.openqa.selenium.os.UnixProcess$SeleniumWatchDog.destroyHarder(UnixProcess.java:247)
+	at org.openqa.selenium.os.UnixProcess$SeleniumWatchDog.access$200(UnixProcess.java:201)
+	at org.openqa.selenium.os.UnixProcess.destroy(UnixProcess.java:125)
+	at org.openqa.selenium.os.CommandLine.destroy(CommandLine.java:155)
+	at org.openqa.selenium.remote.service.DriverService.stop(DriverService.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:94)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644)
+	... 37 more
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private final long java.lang.ProcessImpl.handle accessible: module java.base does not &quot;opens java.lang&quot; to unnamed module @bccb269
+	at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:353)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:329)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:277)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:179)
+	at java.base/java.lang.reflect.Field.setAccessible(Field.java:173)
+	at org.openqa.selenium.os.ProcessUtils.killWinProcess(ProcessUtils.java:130)
+	... 45 more
+</failure>
+  </testcase>
   <system-out><![CDATA[Начал работать
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.tests.DeleteTestContactInGroup" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-16T10:47:43.414Z" hostname="RA_GIMADEYEV" time="0.566">
+<testsuite name="com.example.TestsAddressbook.tests.DeleteTestContactInGroup" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-17T06:43:55.008Z" hostname="RA_GIMADEYEV" time="1.417">
   <properties/>
-  <testcase name="test" classname="com.example.TestsAddressbook.tests.DeleteTestContactInGroup" time="0.566"/>
+  <testcase name="test" classname="com.example.TestsAddressbook.tests.DeleteTestContactInGroup" time="1.417"/>
   <system-out><![CDATA[Начал работать
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

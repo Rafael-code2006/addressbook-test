@@ -41,7 +41,6 @@ public class HbConnectionTest {
         }
     }
     @Test(alwaysRun = false)
-
     public void testHbConnection() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TestsAddressbook.connections.DbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-16T10:47:43.005Z" hostname="RA_GIMADEYEV" time="0.005">
+<testsuite name="com.example.TestsAddressbook.connections.DbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-17T06:43:54.303Z" hostname="RA_GIMADEYEV" time="0.006">
   <properties/>
-  <testcase name="testDb" classname="com.example.TestsAddressbook.connections.DbConnectionTest" time="0.005"/>
+  <testcase name="testDb" classname="com.example.TestsAddressbook.connections.DbConnectionTest" time="0.006"/>
   <system-out><![CDATA[26
 Test1
 27
@@ -10,8 +10,6 @@ test 0
 test 1
 29
 test 2
-31
-Test1
 34
 Test1
 35
@@ -20,25 +18,75 @@ test 2
 Test1
 39
 test 0
-40
-test 1
 41
 test 2
 42
-test 0
+Test1
 43
 test 1
-44
-test 2
 46
 Test1
-47
-test 2
 48
+Test1
+51
+Test1
+53
+test 2
+54
 test 0
-49
+55
 test 1
-50
+56
+test 2
+57
+test 0
+58
+test 1
+59
+test 2
+61
+test 1
+62
+test 2
+63
+test 0
+64
+test 1
+65
+test 2
+66
+test 0
+67
+test 1
+68
+test 2
+70
+test 1
+72
+test 0
+73
+Test1
+74
+test 2
+75
+Test1
+76
+test 1
+77
+test 2
+78
+test 0
+80
+test 2
+82
+test 1
+83
+Test1
+84
+test 0
+85
+test 1
+86
 test 2
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
